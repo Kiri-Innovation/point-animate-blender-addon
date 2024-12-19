@@ -1,0 +1,12 @@
+schema_version = "1.0.0"
+id = "point_animate_by_kiri_engine"
+version = "1.0.0"
+name = "Point Animate by KIRI Engine"
+tagline = "Point Animate by KIRI Engine"
+maintainer = "BLUE NILE 3D"
+type = "add-on"
+tags = ["Animation"]
+blender_version_min = "4.2.0"
+license = [
+"SPDX:GPL-2.0-or-later",
+]
