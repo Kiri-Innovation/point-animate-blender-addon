@@ -1,0 +1,7 @@
+These demo files have been created using the Point Animate addon by KIRI Engine
+
+To get the best use out of these files - install the addon, before opening and playing with each file.
+
+The file 'Point Animate - Demo - Anatomy Text' also makes use of our free addon '3DGS Render by KIRI Engine'
+
+But it isn't fully required to open/view the file contents.
