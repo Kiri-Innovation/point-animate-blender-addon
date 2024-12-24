@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "point_animate_by_kiri_engine"
-version = "1.0.0"
+version = "1.0.1"
 name = "Point Animate by KIRI Engine"
 tagline = "Point Animate by KIRI Engine"
 maintainer = "BLUE NILE 3D"

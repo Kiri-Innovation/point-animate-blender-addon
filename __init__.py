@@ -16,7 +16,7 @@ bl_info = {
     "author" : "BLUE NILE 3D", 
     "description" : "",
     "blender" : (4, 2, 0),
-    "version" : (1, 0, 0),
+    "version" : (1, 0, 1),
     "location" : "N Panel",
     "warning" : "Uninstall before updating",
     "doc_url": "", 
@@ -677,9 +677,9 @@ def sna_active_modifier_settings_function_interface_D3061(layout_function, ):
                                             box_78EB9.label(text='Wireframe modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
 
 
-class SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_4C875(bpy.types.Panel):
+class SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35(bpy.types.Panel):
     bl_label = 'Point Animate by KIRI Engine'
-    bl_idname = 'SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_4C875'
+    bl_idname = 'SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_context = ''
@@ -3257,7 +3257,7 @@ def register():
     bpy.utils.register_class(SNA_OT_Append_Wire_Sphere_F21B7)
     bpy.utils.register_class(SNA_OT_Append_Wire_Cube_D69Fb)
     bpy.utils.register_class(SNA_OT_Append_Wind_Controller_14Ef6)
-    bpy.utils.register_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_4C875)
+    bpy.utils.register_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35)
     bpy.utils.register_class(SNA_OT_Open_Point_Animate_Documentation_1Eac5)
     bpy.utils.register_class(SNA_OT_Open_Point_Animate_Tutorial_Video_A4Fe6)
     bpy.utils.register_class(SNA_OT_Refresh_Changes_Ce548)
@@ -3311,7 +3311,7 @@ def unregister():
     bpy.utils.unregister_class(SNA_OT_Append_Wire_Sphere_F21B7)
     bpy.utils.unregister_class(SNA_OT_Append_Wire_Cube_D69Fb)
     bpy.utils.unregister_class(SNA_OT_Append_Wind_Controller_14Ef6)
-    bpy.utils.unregister_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_4C875)
+    bpy.utils.unregister_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35)
     bpy.utils.unregister_class(SNA_OT_Open_Point_Animate_Documentation_1Eac5)
     bpy.utils.unregister_class(SNA_OT_Open_Point_Animate_Tutorial_Video_A4Fe6)
     bpy.utils.unregister_class(SNA_OT_Refresh_Changes_Ce548)
