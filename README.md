@@ -11,7 +11,7 @@ For more experienced users, full control over each modifier is provided, with th
 The addon is inspired by the point cloud animations of Ruben Fro and mv.nyc: with that in mind, presets are designed to convert solid meshes into point clouds. But for greater versatility, mesh objects can also be animated with ease.
 
 ## Installation:
-❗❗Please note❗❗ The addon was made for the most current version of Blender at the time of writing. The addon should be capable of 4.2 and later, and will NOT work with previous versions of Blender. 
+❗❗Please note❗❗ The addon was made for the most current version of Blender at the time of writing. The addon should be capable of 5.0 and later, and will NOT work with previous versions of Blender. 
 
 Please follow the installation guide in the [doc](https://www.kiriengine.app/blender-addon/point-animate).
 
