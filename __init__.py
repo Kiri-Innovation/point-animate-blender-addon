@@ -16,7 +16,7 @@ bl_info = {
     "author" : "BLUE NILE 3D", 
     "description" : "",
     "blender" : (4, 2, 0),
-    "version" : (1, 0, 1),
+    "version" : (1, 0, 3),
     "location" : "N Panel",
     "warning" : "Uninstall before updating",
     "doc_url": "", 
@@ -31,26 +31,12 @@ import os
 import webbrowser
 
 
-
-
-def string_to_int(value):
-    if value.isdigit():
-        return int(value)
-    return 0
-
-
-def string_to_icon(value):
-    if value in bpy.types.UILayout.bl_rna.functions["prop"].parameters["icon"].enum_items.keys():
-        return bpy.types.UILayout.bl_rna.functions["prop"].parameters["icon"].enum_items[value].value
-    return string_to_int(value)
-
-
 addon_keymaps = {}
 _icons = None
 
 
-def sna_update_sna_kiri_pa_start_frame_325FE(self, context):
-    sna_updated_prop = self.sna_kiri_pa_start_frame
+def sna_update_start_frame_325FE(self, context):
+    sna_updated_prop = self.start_frame
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_14'] = sna_updated_prop
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers):
@@ -63,8 +49,8 @@ def sna_update_sna_kiri_pa_start_frame_325FE(self, context):
             a.tag_redraw()
 
 
-def sna_update_sna_kiri_pa_point_scale_min_A5ACF(self, context):
-    sna_updated_prop = self.sna_kiri_pa_point_scale_min
+def sna_update_point_scale_min_A5ACF(self, context):
+    sna_updated_prop = self.point_scale_min
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Mesh_To_Points_GN' in bpy.context.view_layer.objects.active.modifiers):
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN']['Socket_7'] = sna_updated_prop
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
@@ -79,8 +65,8 @@ def sna_update_sna_kiri_pa_point_scale_min_A5ACF(self, context):
             a.tag_redraw()
 
 
-def sna_update_sna_kiri_pa_point_scale_attribute_2C65A(self, context):
-    sna_updated_prop = self.sna_kiri_pa_point_scale_attribute
+def sna_update_point_scale_attribute_2C65A(self, context):
+    sna_updated_prop = self.point_scale_attribute
     input_attribute = sna_updated_prop
     output_value = None
     # Define the dictionary with 'attribute_string' as the key and 'attribute_int' as the value
@@ -114,8 +100,8 @@ def sna_update_sna_kiri_pa_point_scale_attribute_2C65A(self, context):
             a.tag_redraw()
 
 
-def sna_update_sna_kiri_pa_end_frame_22369(self, context):
-    sna_updated_prop = self.sna_kiri_pa_end_frame
+def sna_update_end_frame_22369(self, context):
+    sna_updated_prop = self.end_frame
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_28'] = sna_updated_prop
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers):
@@ -128,8 +114,8 @@ def sna_update_sna_kiri_pa_end_frame_22369(self, context):
             a.tag_redraw()
 
 
-def sna_update_sna_kiri_pa_point_scale_max_0E8A0(self, context):
-    sna_updated_prop = self.sna_kiri_pa_point_scale_max
+def sna_update_point_scale_max_0E8A0(self, context):
+    sna_updated_prop = self.point_scale_max
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Mesh_To_Points_GN' in bpy.context.view_layer.objects.active.modifiers):
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN']['Socket_8'] = sna_updated_prop
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
@@ -144,8 +130,8 @@ def sna_update_sna_kiri_pa_point_scale_max_0E8A0(self, context):
             a.tag_redraw()
 
 
-def sna_update_sna_kiri_pa_point_scale_random_5C353(self, context):
-    sna_updated_prop = self.sna_kiri_pa_point_scale_random
+def sna_update_scale_random_5C353(self, context):
+    sna_updated_prop = self.scale_random
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Mesh_To_Points_GN' in bpy.context.view_layer.objects.active.modifiers):
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN']['Socket_6'] = sna_updated_prop
     if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
@@ -160,6 +146,14 @@ def sna_update_sna_kiri_pa_point_scale_random_5C353(self, context):
             a.tag_redraw()
 
 
+def property_exists(prop_path, glob, loc):
+    try:
+        eval(prop_path, glob, loc)
+        return True
+    except:
+        return False
+
+
 def load_preview_icon(path):
     global _icons
     if not path in _icons:
@@ -170,57 +164,49 @@ def load_preview_icon(path):
     return _icons[path].icon_id
 
 
-def property_exists(prop_path, glob, loc):
-    try:
-        eval(prop_path, glob, loc)
-        return True
-    except:
-        return False
-
-
-def sna_update_sna_kiri_pa_enable_decimate_897F9(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_decimate
+def sna_update_enable_decimate_897F9(self, context):
+    sna_updated_prop = self.enable_decimate
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_Point_Animate_Decimate_GN')
 
 
-def sna_update_sna_kiri_pa_enable_crop_box_C5D8F(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_crop_box
+def sna_update_enable_crop_box_C5D8F(self, context):
+    sna_updated_prop = self.enable_crop_box
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_Point_Animate_Crop_Box_GN')
 
 
-def sna_update_sna_kiri_pa_enable_wind_0B2A0(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_wind
+def sna_update_enable_wind_0B2A0(self, context):
+    sna_updated_prop = self.enable_wind
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_Point_Animate_Wind_GN')
     if sna_updated_prop:
         sna_turn_modifier_on_off_function_execute_C4736(False, 'KIRI_Point_Animate_Morph_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph = False
 
 
-def sna_update_sna_kiri_pa_enable_morph_2583F(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_morph
+def sna_update_enable_morph_2583F(self, context):
+    sna_updated_prop = self.enable_morph
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_Point_Animate_Morph_GN')
     if sna_updated_prop:
         sna_turn_modifier_on_off_function_execute_C4736(False, 'KIRI_Point_Animate_Wind_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind = False
 
 
-def sna_update_sna_kiri_pa_enable_noise_19878(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_noise
+def sna_update_enable_noise_19878(self, context):
+    sna_updated_prop = self.enable_noise
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_3DGS_Point_Animate_Noise_GN')
 
 
-def sna_update_sna_kiri_pa_enable_snap_141CD(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_snap
+def sna_update_enable_snap_141CD(self, context):
+    sna_updated_prop = self.enable_snap
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN')
 
 
-def sna_update_sna_kiri_pa_enable_wireframe_CAA02(self, context):
-    sna_updated_prop = self.sna_kiri_pa_enable_wireframe
+def sna_update_enable_wireframe_CAA02(self, context):
+    sna_updated_prop = self.enable_wireframe
     sna_turn_modifier_on_off_function_execute_C4736(sna_updated_prop, 'KIRI_Point_Animate_Wireframe_GN')
 
 
 def sna_crop_function_interface_7E647(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_crop_box:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_crop_box:
         pass
     else:
         box_39A95 = layout_function.box()
@@ -236,7 +222,7 @@ def sna_crop_function_interface_7E647(layout_function, ):
         box_39A95.label(text='Crop Box is disabled', icon_value=0)
     box_7D30A = layout_function.box()
     box_7D30A.alert = False
-    box_7D30A.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_crop_box
+    box_7D30A.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_crop_box
     box_7D30A.active = True
     box_7D30A.use_property_split = False
     box_7D30A.use_property_decorate = False
@@ -256,7 +242,7 @@ def sna_crop_function_interface_7E647(layout_function, ):
 
 
 def sna_decimate_function_interface_36876(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_decimate:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_decimate:
         pass
     else:
         box_F44E9 = layout_function.box()
@@ -272,7 +258,7 @@ def sna_decimate_function_interface_36876(layout_function, ):
         box_F44E9.label(text='Decimate is disabled', icon_value=0)
     box_9BCC5 = layout_function.box()
     box_9BCC5.alert = False
-    box_9BCC5.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_decimate
+    box_9BCC5.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_decimate
     box_9BCC5.active = True
     box_9BCC5.use_property_split = False
     box_9BCC5.use_property_decorate = False
@@ -285,7 +271,7 @@ def sna_decimate_function_interface_36876(layout_function, ):
     box_9BCC5.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Decimate_GN'], attr_5D31E, text='', icon_value=0, emboss=True, slider=True)
 
 
-def sna_add_point_animate_modifiers_function_interface_CA918(layout_function, ):
+def sna_add_point_animate_modifiers_button_CA918(layout_function, ):
     if (bpy.context.view_layer.objects.active == None):
         pass
     else:
@@ -294,16 +280,16 @@ def sna_add_point_animate_modifiers_function_interface_CA918(layout_function, ):
         else:
             if bpy.context.view_layer.objects.active.type == 'MESH':
                 box_D6EEB = layout_function.box()
-                box_D6EEB.alert = False
+                box_D6EEB.alert = True
                 box_D6EEB.enabled = True
                 box_D6EEB.active = True
                 box_D6EEB.use_property_split = False
                 box_D6EEB.use_property_decorate = False
                 box_D6EEB.alignment = 'Expand'.upper()
                 box_D6EEB.scale_x = 1.0
-                box_D6EEB.scale_y = 1.0
+                box_D6EEB.scale_y = 2.0
                 if not True: box_D6EEB.operator_context = "EXEC_DEFAULT"
-                op = box_D6EEB.operator('sna.add_point_edit_modifiers_aafc2', text='Add Point Animate Modifiers', icon_value=string_to_icon('MOD_PARTICLES'), emboss=True, depress=False)
+                op = box_D6EEB.operator('sna.add_point_edit_modifiers_aafc2', text='Add Point Animate Modifiers', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'plus.svg')), emboss=True, depress=False)
 
 
 class SNA_OT_Add_Point_Edit_Modifiers_Aafc2(bpy.types.Operator):
@@ -377,7 +363,7 @@ def sna_add_point_edit_modifiers_function_execute_D32BB():
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 0
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 0
     bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 0
-    bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'No Attribute Influence'
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'No Attribute Influence'
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Color_Convert_GN']['Socket_33'] = 0.0020000000949949026
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_11'] = 0.0020000000949949026
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_67'] = 0.0020000000949949026
@@ -385,15 +371,15 @@ def sna_add_point_edit_modifiers_function_execute_D32BB():
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_71'] = 0.029999999329447746
     bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_68'] = 0.029999999329447746
     bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_96'] = 0.029999999329447746
-    bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_min = 0.0020000000949949026
-    bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_max = 0.029999999329447746
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_decimate = False
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_crop_box = False
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind = False
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph = False
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise = False
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_snap = False
-    bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wireframe = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_min = 0.0020000000949949026
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_max = 0.029999999329447746
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_decimate = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_crop_box = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_snap = False
+    bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wireframe = False
     for i_AC295 in range(len(bpy.context.view_layer.objects.active.modifiers)):
         for i_9F9B2 in range(len(bpy.context.view_layer.objects.active.modifiers[i_AC295].bakes)):
             bpy.context.view_layer.objects.active.modifiers[i_AC295].bakes[i_9F9B2].bake_mode = 'ANIMATION'
@@ -494,7 +480,7 @@ class SNA_OT_Append_Wind_Controller_14Ef6(bpy.types.Operator):
         return self.execute(context)
 
 
-def sna_add_effector_function_interface_20819(layout_function, ):
+def sna_add_effectors_menu_20819(layout_function, ):
     box_3CE1A = layout_function.box()
     box_3CE1A.alert = False
     box_3CE1A.enabled = True
@@ -506,7 +492,7 @@ def sna_add_effector_function_interface_20819(layout_function, ):
     box_3CE1A.scale_y = 1.0
     if not True: box_3CE1A.operator_context = "EXEC_DEFAULT"
     box_3CE1A.label(text='Add Effectors', icon_value=0)
-    grid_D7834 = box_3CE1A.grid_flow(columns=3, row_major=False, even_columns=False, even_rows=False, align=False)
+    grid_D7834 = box_3CE1A.grid_flow(columns=3, row_major=False, even_columns=False, even_rows=False, align=True)
     grid_D7834.enabled = True
     grid_D7834.active = True
     grid_D7834.use_property_split = False
@@ -515,9 +501,9 @@ def sna_add_effector_function_interface_20819(layout_function, ):
     grid_D7834.scale_x = 1.0
     grid_D7834.scale_y = 1.0
     if not True: grid_D7834.operator_context = "EXEC_DEFAULT"
-    op = grid_D7834.operator('sna.append_wire_sphere_f21b7', text='', icon_value=string_to_icon('MESH_UVSPHERE'), emboss=True, depress=False)
-    op = grid_D7834.operator('sna.append_wire_cube_d69fb', text='', icon_value=string_to_icon('CUBE'), emboss=True, depress=False)
-    op = grid_D7834.operator('sna.append_wind_controller_14ef6', text='', icon_value=string_to_icon('EMPTY_SINGLE_ARROW'), emboss=True, depress=False)
+    op = grid_D7834.operator('sna.append_wire_sphere_f21b7', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'noun-sphere-7915480-FFFFFF.svg')), emboss=True, depress=False)
+    op = grid_D7834.operator('sna.append_wire_cube_d69fb', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'noun-cube-7915485-FFFFFF.svg')), emboss=True, depress=False)
+    op = grid_D7834.operator('sna.append_wind_controller_14ef6', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'direction-arrow-straight.svg')), emboss=True, depress=False)
 
 
 def sna_active_modifier_settings_function_interface_D3061(layout_function, ):
@@ -525,7 +511,7 @@ def sna_active_modifier_settings_function_interface_D3061(layout_function, ):
         pass
     else:
         if ((property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Decimate_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Crop_Box_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wireframe_GN' in bpy.context.view_layer.objects.active.modifiers)):
-            col_0C24F = layout_function.column(heading='', align=False)
+            col_0C24F = layout_function.column(heading='', align=True)
             col_0C24F.alert = False
             col_0C24F.enabled = True
             col_0C24F.active = True
@@ -536,17 +522,26 @@ def sna_active_modifier_settings_function_interface_D3061(layout_function, ):
             col_0C24F.alignment = 'Expand'.upper()
             col_0C24F.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
             box_44258 = col_0C24F.box()
-            box_44258.alert = True
+            box_44258.alert = False
             box_44258.enabled = True
             box_44258.active = True
             box_44258.use_property_split = False
             box_44258.use_property_decorate = False
             box_44258.alignment = 'Expand'.upper()
             box_44258.scale_x = 1.0
-            box_44258.scale_y = 2.0
+            box_44258.scale_y = 1.0
             if not True: box_44258.operator_context = "EXEC_DEFAULT"
-            box_44258.label(text='Active Settings', icon_value=string_to_icon('SETTINGS'))
-            box_44258.prop(bpy.context.scene, 'sna_kiri_pa_active_settings', text='', icon_value=0, emboss=True)
+            box_44258.label(text='Active Settings', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
+            grid_7328C = box_44258.grid_flow(columns=2, row_major=False, even_columns=False, even_rows=False, align=True)
+            grid_7328C.enabled = True
+            grid_7328C.active = True
+            grid_7328C.use_property_split = False
+            grid_7328C.use_property_decorate = False
+            grid_7328C.alignment = 'Expand'.upper()
+            grid_7328C.scale_x = 1.0
+            grid_7328C.scale_y = 1.0
+            if not True: grid_7328C.operator_context = "EXEC_DEFAULT"
+            grid_7328C.prop(bpy.context.scene.sna_kiri_pa_scene_properties, 'active_settings', text='.', icon_value=0, emboss=True, expand=True)
             box_D08B3 = col_0C24F.box()
             box_D08B3.alert = False
             box_D08B3.enabled = True
@@ -557,7 +552,7 @@ def sna_active_modifier_settings_function_interface_D3061(layout_function, ):
             box_D08B3.scale_x = 1.0
             box_D08B3.scale_y = 1.0
             if not True: box_D08B3.operator_context = "EXEC_DEFAULT"
-            if (bpy.context.scene.sna_kiri_pa_active_settings == 'Decimate'):
+            if bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Decimate":
                 if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Decimate_GN' in bpy.context.view_layer.objects.active.modifiers):
                     layout_function = box_D08B3
                     sna_decimate_function_interface_36876(layout_function, )
@@ -572,214 +567,129 @@ def sna_active_modifier_settings_function_interface_D3061(layout_function, ):
                     box_61770.scale_x = 1.0
                     box_61770.scale_y = 1.0
                     if not True: box_61770.operator_context = "EXEC_DEFAULT"
-                    box_61770.label(text='Decimate modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
-            else:
-                if (bpy.context.scene.sna_kiri_pa_active_settings == 'Crop Box'):
-                    if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Crop_Box_GN' in bpy.context.view_layer.objects.active.modifiers):
-                        layout_function = box_D08B3
-                        sna_crop_function_interface_7E647(layout_function, )
-                    else:
-                        box_834CE = box_D08B3.box()
-                        box_834CE.alert = True
-                        box_834CE.enabled = True
-                        box_834CE.active = True
-                        box_834CE.use_property_split = False
-                        box_834CE.use_property_decorate = False
-                        box_834CE.alignment = 'Expand'.upper()
-                        box_834CE.scale_x = 1.0
-                        box_834CE.scale_y = 1.0
-                        if not True: box_834CE.operator_context = "EXEC_DEFAULT"
-                        box_834CE.label(text='Crop Box modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
+                    box_61770.label(text='Decimate modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            elif bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Crop Box":
+                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Crop_Box_GN' in bpy.context.view_layer.objects.active.modifiers):
+                    layout_function = box_D08B3
+                    sna_crop_function_interface_7E647(layout_function, )
                 else:
-                    if (bpy.context.scene.sna_kiri_pa_active_settings == 'Wind'):
-                        if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
-                            layout_function = box_D08B3
-                            sna_wind_function_interface_178D5(layout_function, )
-                        else:
-                            box_94DC1 = box_D08B3.box()
-                            box_94DC1.alert = True
-                            box_94DC1.enabled = True
-                            box_94DC1.active = True
-                            box_94DC1.use_property_split = False
-                            box_94DC1.use_property_decorate = False
-                            box_94DC1.alignment = 'Expand'.upper()
-                            box_94DC1.scale_x = 1.0
-                            box_94DC1.scale_y = 1.0
-                            if not True: box_94DC1.operator_context = "EXEC_DEFAULT"
-                            box_94DC1.label(text='Wind modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
-                    else:
-                        if (bpy.context.scene.sna_kiri_pa_active_settings == 'Morph'):
-                            if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers):
-                                layout_function = box_D08B3
-                                sna_morph_function_interface_BAD21(layout_function, )
-                            else:
-                                box_B23F5 = box_D08B3.box()
-                                box_B23F5.alert = True
-                                box_B23F5.enabled = True
-                                box_B23F5.active = True
-                                box_B23F5.use_property_split = False
-                                box_B23F5.use_property_decorate = False
-                                box_B23F5.alignment = 'Expand'.upper()
-                                box_B23F5.scale_x = 1.0
-                                box_B23F5.scale_y = 1.0
-                                if not True: box_B23F5.operator_context = "EXEC_DEFAULT"
-                                box_B23F5.label(text='Morph modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
-                        else:
-                            if (bpy.context.scene.sna_kiri_pa_active_settings == 'Noise'):
-                                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers):
-                                    layout_function = box_D08B3
-                                    sna_noise_function_interface_05231(layout_function, )
-                                else:
-                                    box_8AEBC = box_D08B3.box()
-                                    box_8AEBC.alert = True
-                                    box_8AEBC.enabled = True
-                                    box_8AEBC.active = True
-                                    box_8AEBC.use_property_split = False
-                                    box_8AEBC.use_property_decorate = False
-                                    box_8AEBC.alignment = 'Expand'.upper()
-                                    box_8AEBC.scale_x = 1.0
-                                    box_8AEBC.scale_y = 1.0
-                                    if not True: box_8AEBC.operator_context = "EXEC_DEFAULT"
-                                    box_8AEBC.label(text='Noise modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
-                            else:
-                                if (bpy.context.scene.sna_kiri_pa_active_settings == 'Snap To Shape'):
-                                    if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN' in bpy.context.view_layer.objects.active.modifiers):
-                                        layout_function = box_D08B3
-                                        sna_snap_function_interface_8E0BA(layout_function, )
-                                    else:
-                                        box_F925D = box_D08B3.box()
-                                        box_F925D.alert = True
-                                        box_F925D.enabled = True
-                                        box_F925D.active = True
-                                        box_F925D.use_property_split = False
-                                        box_F925D.use_property_decorate = False
-                                        box_F925D.alignment = 'Expand'.upper()
-                                        box_F925D.scale_x = 1.0
-                                        box_F925D.scale_y = 1.0
-                                        if not True: box_F925D.operator_context = "EXEC_DEFAULT"
-                                        box_F925D.label(text='Snap To Shape modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
-                                else:
-                                    if (bpy.context.scene.sna_kiri_pa_active_settings == 'Wireframe'):
-                                        if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wireframe_GN' in bpy.context.view_layer.objects.active.modifiers):
-                                            layout_function = box_D08B3
-                                            sna_wireframe_function_interface_67E1B(layout_function, )
-                                        else:
-                                            box_78EB9 = box_D08B3.box()
-                                            box_78EB9.alert = True
-                                            box_78EB9.enabled = True
-                                            box_78EB9.active = True
-                                            box_78EB9.use_property_split = False
-                                            box_78EB9.use_property_decorate = False
-                                            box_78EB9.alignment = 'Expand'.upper()
-                                            box_78EB9.scale_x = 1.0
-                                            box_78EB9.scale_y = 1.0
-                                            if not True: box_78EB9.operator_context = "EXEC_DEFAULT"
-                                            box_78EB9.label(text='Wireframe modifier is missing', icon_value=string_to_icon('WARNING_LARGE'))
-
-
-class SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35(bpy.types.Panel):
-    bl_label = 'Point Animate by KIRI Engine'
-    bl_idname = 'SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35'
-    bl_space_type = 'VIEW_3D'
-    bl_region_type = 'UI'
-    bl_context = ''
-    bl_category = 'Point Animate'
-    bl_order = 0
-    bl_ui_units_x=0
-
-    @classmethod
-    def poll(cls, context):
-        return not (False)
-
-    def draw_header(self, context):
-        layout = self.layout
-        layout.template_icon(icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'kiriengine icon.png')), scale=0.0)
-
-    def draw(self, context):
-        layout = self.layout
-        layout_function = layout
-        sna_all_functions_main_function_interface_AECE6(layout_function, )
-        layout.separator(factor=1.0)
-        layout_function = layout
-        sna_documentation_interface_function_A1B59(layout_function, )
-        layout.separator(factor=1.0)
-        layout_function = layout
-        sna_about_and_external_links_interface_function_8E1B8(layout_function, )
-
-
-class SNA_OT_Open_Point_Animate_Documentation_1Eac5(bpy.types.Operator):
-    bl_idname = "sna.open_point_animate_documentation_1eac5"
-    bl_label = "Open Point Animate Documentation"
-    bl_description = ""
-    bl_options = {"REGISTER", "UNDO"}
-
-    @classmethod
-    def poll(cls, context):
-        if bpy.app.version >= (3, 0, 0) and True:
-            cls.poll_message_set('')
-        return not False
-
-    def execute(self, context):
-        url = 'https://www.kiriengine.app/blender-addon/point-animate'
-        # Open the web browser and go to the specified URL
-        webbrowser.open(url)
-        print(f"Opening web browser to {url}")
-        return {"FINISHED"}
-
-    def invoke(self, context, event):
-        return self.execute(context)
-
-
-def sna_documentation_interface_function_A1B59(layout_function, ):
-    box_74304 = layout_function.box()
-    box_74304.alert = False
-    box_74304.enabled = True
-    box_74304.active = True
-    box_74304.use_property_split = False
-    box_74304.use_property_decorate = False
-    box_74304.alignment = 'Expand'.upper()
-    box_74304.scale_x = 1.0
-    box_74304.scale_y = 1.0
-    if not True: box_74304.operator_context = "EXEC_DEFAULT"
-    op = box_74304.operator('sna.open_point_animate_documentation_1eac5', text='Documentation', icon_value=0, emboss=True, depress=False)
-    op = box_74304.operator('sna.open_point_animate_tutorial_video_a4fe6', text='Tutorial Video', icon_value=0, emboss=True, depress=False)
-
-
-class SNA_OT_Open_Point_Animate_Tutorial_Video_A4Fe6(bpy.types.Operator):
-    bl_idname = "sna.open_point_animate_tutorial_video_a4fe6"
-    bl_label = "Open Point Animate Tutorial Video"
-    bl_description = ""
-    bl_options = {"REGISTER", "UNDO"}
-
-    @classmethod
-    def poll(cls, context):
-        if bpy.app.version >= (3, 0, 0) and True:
-            cls.poll_message_set('')
-        return not False
-
-    def execute(self, context):
-        url = 'https://youtu.be/ZHhqq5wzsKE'
-        # Open the web browser and go to the specified URL
-        webbrowser.open(url)
-        print(f"Opening web browser to {url}")
-        return {"FINISHED"}
-
-    def invoke(self, context, event):
-        return self.execute(context)
+                    box_834CE = box_D08B3.box()
+                    box_834CE.alert = True
+                    box_834CE.enabled = True
+                    box_834CE.active = True
+                    box_834CE.use_property_split = False
+                    box_834CE.use_property_decorate = False
+                    box_834CE.alignment = 'Expand'.upper()
+                    box_834CE.scale_x = 1.0
+                    box_834CE.scale_y = 1.0
+                    if not True: box_834CE.operator_context = "EXEC_DEFAULT"
+                    box_834CE.label(text='Crop Box modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            elif bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Wind":
+                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers):
+                    layout_function = box_D08B3
+                    sna_wind_function_interface_178D5(layout_function, )
+                else:
+                    box_94DC1 = box_D08B3.box()
+                    box_94DC1.alert = True
+                    box_94DC1.enabled = True
+                    box_94DC1.active = True
+                    box_94DC1.use_property_split = False
+                    box_94DC1.use_property_decorate = False
+                    box_94DC1.alignment = 'Expand'.upper()
+                    box_94DC1.scale_x = 1.0
+                    box_94DC1.scale_y = 1.0
+                    if not True: box_94DC1.operator_context = "EXEC_DEFAULT"
+                    box_94DC1.label(text='Wind modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            elif bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Morph":
+                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers):
+                    layout_function = box_D08B3
+                    sna_morph_function_interface_BAD21(layout_function, )
+                else:
+                    box_B23F5 = box_D08B3.box()
+                    box_B23F5.alert = True
+                    box_B23F5.enabled = True
+                    box_B23F5.active = True
+                    box_B23F5.use_property_split = False
+                    box_B23F5.use_property_decorate = False
+                    box_B23F5.alignment = 'Expand'.upper()
+                    box_B23F5.scale_x = 1.0
+                    box_B23F5.scale_y = 1.0
+                    if not True: box_B23F5.operator_context = "EXEC_DEFAULT"
+                    box_B23F5.label(text='Morph modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            elif bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Noise":
+                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers):
+                    layout_function = box_D08B3
+                    sna_noise_function_interface_05231(layout_function, )
+                else:
+                    box_8AEBC = box_D08B3.box()
+                    box_8AEBC.alert = True
+                    box_8AEBC.enabled = True
+                    box_8AEBC.active = True
+                    box_8AEBC.use_property_split = False
+                    box_8AEBC.use_property_decorate = False
+                    box_8AEBC.alignment = 'Expand'.upper()
+                    box_8AEBC.scale_x = 1.0
+                    box_8AEBC.scale_y = 1.0
+                    if not True: box_8AEBC.operator_context = "EXEC_DEFAULT"
+                    box_8AEBC.label(text='Noise modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            elif bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Snap To Shape":
+                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN' in bpy.context.view_layer.objects.active.modifiers):
+                    layout_function = box_D08B3
+                    sna_snap_function_interface_8E0BA(layout_function, )
+                else:
+                    box_F925D = box_D08B3.box()
+                    box_F925D.alert = True
+                    box_F925D.enabled = True
+                    box_F925D.active = True
+                    box_F925D.use_property_split = False
+                    box_F925D.use_property_decorate = False
+                    box_F925D.alignment = 'Expand'.upper()
+                    box_F925D.scale_x = 1.0
+                    box_F925D.scale_y = 1.0
+                    if not True: box_F925D.operator_context = "EXEC_DEFAULT"
+                    box_F925D.label(text='Snap To Shape modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            elif bpy.context.scene.sna_kiri_pa_scene_properties.active_settings == "Wireframe":
+                if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wireframe_GN' in bpy.context.view_layer.objects.active.modifiers):
+                    layout_function = box_D08B3
+                    sna_wireframe_function_interface_67E1B(layout_function, )
+                else:
+                    box_78EB9 = box_D08B3.box()
+                    box_78EB9.alert = True
+                    box_78EB9.enabled = True
+                    box_78EB9.active = True
+                    box_78EB9.use_property_split = False
+                    box_78EB9.use_property_decorate = False
+                    box_78EB9.alignment = 'Expand'.upper()
+                    box_78EB9.scale_x = 1.0
+                    box_78EB9.scale_y = 1.0
+                    if not True: box_78EB9.operator_context = "EXEC_DEFAULT"
+                    box_78EB9.label(text='Wireframe modifier is missing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
+            else:
+                pass
 
 
 def sna_all_functions_main_function_interface_AECE6(layout_function, ):
-    layout_function = layout_function
-    sna_add_point_animate_modifiers_function_interface_CA918(layout_function, )
-    layout_function = layout_function
+    col_0FD77 = layout_function.column(heading='', align=True)
+    col_0FD77.alert = False
+    col_0FD77.enabled = True
+    col_0FD77.active = True
+    col_0FD77.use_property_split = False
+    col_0FD77.use_property_decorate = False
+    col_0FD77.scale_x = 1.0
+    col_0FD77.scale_y = 1.0
+    col_0FD77.alignment = 'Expand'.upper()
+    col_0FD77.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+    layout_function = col_0FD77
+    sna_add_point_animate_modifiers_button_CA918(layout_function, )
+    layout_function = col_0FD77
     sna_quick_control_function_interface_80AF1(layout_function, )
-    layout_function = layout_function
-    sna_add_effector_function_interface_20819(layout_function, )
-    layout_function = layout_function
-    sna_global_properties_function_interface_55201(layout_function, )
-    layout_function = layout_function
-    sna_layer_stack_function_interface_D2063(layout_function, )
-    layout_function = layout_function
+    layout_function = col_0FD77
+    sna_add_effectors_menu_20819(layout_function, )
+    layout_function = col_0FD77
+    sna_global_properties_55201(layout_function, )
+    layout_function = col_0FD77
+    sna_layer_stack_menu_D2063(layout_function, )
+    layout_function = col_0FD77
     sna_active_modifier_settings_function_interface_D3061(layout_function, )
 
 
@@ -806,7 +716,7 @@ class SNA_OT_Refresh_Changes_Ce548(bpy.types.Operator):
         return self.execute(context)
 
 
-def sna_global_properties_function_interface_55201(layout_function, ):
+def sna_global_properties_55201(layout_function, ):
     if (bpy.context.view_layer.objects.active == None):
         pass
     else:
@@ -821,8 +731,18 @@ def sna_global_properties_function_interface_55201(layout_function, ):
             box_5B50C.scale_x = 1.0
             box_5B50C.scale_y = 1.0
             if not True: box_5B50C.operator_context = "EXEC_DEFAULT"
+            col_9E35D = box_5B50C.column(heading='', align=True)
+            col_9E35D.alert = False
+            col_9E35D.enabled = True
+            col_9E35D.active = True
+            col_9E35D.use_property_split = False
+            col_9E35D.use_property_decorate = False
+            col_9E35D.scale_x = 1.0
+            col_9E35D.scale_y = 1.0
+            col_9E35D.alignment = 'Expand'.upper()
+            col_9E35D.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
             if ((property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wireframe_GN' in bpy.context.view_layer.objects.active.modifiers)):
-                col_8BA56 = box_5B50C.column(heading='', align=False)
+                col_8BA56 = col_9E35D.column(heading='', align=False)
                 col_8BA56.alert = False
                 col_8BA56.enabled = True
                 col_8BA56.active = True
@@ -845,7 +765,7 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                     box_23735.scale_x = 1.0
                     box_23735.scale_y = 1.0
                     if not True: box_23735.operator_context = "EXEC_DEFAULT"
-                    box_23735.label(text='Rotation is not applied', icon_value=string_to_icon('WARNING_LARGE'))
+                    box_23735.label(text='Rotation is not applied', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
                 if ((bpy.context.view_layer.objects.active.scale[0] == 1.0) and (bpy.context.view_layer.objects.active.scale[1] == 1.0) and (bpy.context.view_layer.objects.active.scale[2] == 1.0)):
                     pass
                 else:
@@ -859,10 +779,10 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                     box_51618.scale_x = 1.0
                     box_51618.scale_y = 1.0
                     if not True: box_51618.operator_context = "EXEC_DEFAULT"
-                    box_51618.label(text='Scale is not applied', icon_value=string_to_icon('WARNING_LARGE'))
+                    box_51618.label(text='Scale is not applied', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'alert-circle.svg')))
             if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Mesh_To_Points_GN' in bpy.context.view_layer.objects.active.modifiers):
                 if (len(bpy.context.active_object.data.id_data.edges) > 0):
-                    box_CF306 = box_5B50C.box()
+                    box_CF306 = col_9E35D.box()
                     box_CF306.alert = False
                     box_CF306.enabled = True
                     box_CF306.active = True
@@ -872,8 +792,8 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                     box_CF306.scale_x = 1.0
                     box_CF306.scale_y = 1.0
                     if not True: box_CF306.operator_context = "EXEC_DEFAULT"
-                    box_CF306.label(text='Mesh colour texture', icon_value=string_to_icon('OUTLINER_OB_IMAGE'))
-                    row_FCD17 = box_CF306.row(heading='', align=False)
+                    box_CF306.label(text='Mesh colour texture', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'image.svg')))
+                    row_FCD17 = box_CF306.row(heading='', align=True)
                     row_FCD17.alert = False
                     row_FCD17.enabled = True
                     row_FCD17.active = True
@@ -883,10 +803,21 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                     row_FCD17.scale_y = 1.0
                     row_FCD17.alignment = 'Expand'.upper()
                     row_FCD17.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-                    row_FCD17.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE')
-                    op = row_FCD17.operator('sna.refresh_changes_ce548', text='', icon_value=string_to_icon('FILE_REFRESH'), emboss=True, depress=False)
+                    row_FCD17.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
+                    op = row_FCD17.operator('sna.refresh_changes_ce548', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'refresh.svg')), emboss=True, depress=False)
             if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Set_Material_GN' in bpy.context.view_layer.objects.active.modifiers):
-                grid_F259F = box_5B50C.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
+                box_D0222 = col_9E35D.box()
+                box_D0222.alert = False
+                box_D0222.enabled = True
+                box_D0222.active = True
+                box_D0222.use_property_split = False
+                box_D0222.use_property_decorate = False
+                box_D0222.alignment = 'Expand'.upper()
+                box_D0222.scale_x = 1.0
+                box_D0222.scale_y = 1.0
+                if not True: box_D0222.operator_context = "EXEC_DEFAULT"
+                box_D0222.label(text='Materials', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
+                grid_F259F = box_D0222.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=True)
                 grid_F259F.enabled = True
                 grid_F259F.active = True
                 grid_F259F.use_property_split = False
@@ -905,42 +836,22 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                 box_76853.scale_x = 1.0
                 box_76853.scale_y = 1.0
                 if not True: box_76853.operator_context = "EXEC_DEFAULT"
-                box_76853.label(text='Point Material', icon_value=string_to_icon('MATERIAL'))
-                row_B26E3 = box_76853.row(heading='', align=False)
-                row_B26E3.alert = False
-                row_B26E3.enabled = True
-                row_B26E3.active = True
-                row_B26E3.use_property_split = False
-                row_B26E3.use_property_decorate = False
-                row_B26E3.scale_x = 1.0
-                row_B26E3.scale_y = 1.0
-                row_B26E3.alignment = 'Expand'.upper()
-                row_B26E3.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-                row_B26E3.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Set_Material_GN'], '["Socket_6"]', bpy.data, 'materials', text='', icon='NONE')
-                box_04ED2 = grid_F259F.box()
-                box_04ED2.alert = False
-                box_04ED2.enabled = True
-                box_04ED2.active = True
-                box_04ED2.use_property_split = False
-                box_04ED2.use_property_decorate = False
-                box_04ED2.alignment = 'Expand'.upper()
-                box_04ED2.scale_x = 1.0
-                box_04ED2.scale_y = 1.0
-                if not True: box_04ED2.operator_context = "EXEC_DEFAULT"
-                box_04ED2.label(text='Mesh Material', icon_value=string_to_icon('MATERIAL'))
-                row_B2941 = box_04ED2.row(heading='', align=False)
-                row_B2941.alert = False
-                row_B2941.enabled = True
-                row_B2941.active = True
-                row_B2941.use_property_split = False
-                row_B2941.use_property_decorate = False
-                row_B2941.scale_x = 1.0
-                row_B2941.scale_y = 1.0
-                row_B2941.alignment = 'Expand'.upper()
-                row_B2941.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-                row_B2941.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Set_Material_GN'], '["Socket_7"]', bpy.data, 'materials', text='', icon='NONE')
+                box_76853.label(text='Point', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'material.svg')))
+                box_76853.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Set_Material_GN'], '["Socket_6"]', bpy.data, 'materials', text='', icon='NONE', item_search_property="name")
+                box_F2B60 = grid_F259F.box()
+                box_F2B60.alert = False
+                box_F2B60.enabled = True
+                box_F2B60.active = True
+                box_F2B60.use_property_split = False
+                box_F2B60.use_property_decorate = False
+                box_F2B60.alignment = 'Expand'.upper()
+                box_F2B60.scale_x = 1.0
+                box_F2B60.scale_y = 1.0
+                if not True: box_F2B60.operator_context = "EXEC_DEFAULT"
+                box_F2B60.label(text='Mesh', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'material.svg')))
+                box_F2B60.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Set_Material_GN'], '["Socket_7"]', bpy.data, 'materials', text='', icon='NONE', item_search_property="name")
             if ((property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wireframe_GN' in bpy.context.view_layer.objects.active.modifiers)):
-                box_92E9D = box_5B50C.box()
+                box_92E9D = col_9E35D.box()
                 box_92E9D.alert = False
                 box_92E9D.enabled = True
                 box_92E9D.active = True
@@ -950,7 +861,8 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                 box_92E9D.scale_x = 1.0
                 box_92E9D.scale_y = 1.0
                 if not True: box_92E9D.operator_context = "EXEC_DEFAULT"
-                grid_2745E = box_92E9D.grid_flow(columns=2, row_major=False, even_columns=False, even_rows=False, align=False)
+                box_92E9D.label(text='Timing', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
+                grid_2745E = box_92E9D.grid_flow(columns=2, row_major=False, even_columns=False, even_rows=False, align=True)
                 grid_2745E.enabled = True
                 grid_2745E.active = True
                 grid_2745E.use_property_split = False
@@ -959,32 +871,10 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                 grid_2745E.scale_x = 1.0
                 grid_2745E.scale_y = 1.0
                 if not True: grid_2745E.operator_context = "EXEC_DEFAULT"
-                col_A9001 = grid_2745E.column(heading='', align=False)
-                col_A9001.alert = False
-                col_A9001.enabled = True
-                col_A9001.active = True
-                col_A9001.use_property_split = False
-                col_A9001.use_property_decorate = False
-                col_A9001.scale_x = 1.0
-                col_A9001.scale_y = 1.0
-                col_A9001.alignment = 'Expand'.upper()
-                col_A9001.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-                col_A9001.label(text='Start Frame', icon_value=0)
-                col_A9001.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_start_frame', text='', icon_value=0, emboss=True)
-                col_3733D = grid_2745E.column(heading='', align=False)
-                col_3733D.alert = False
-                col_3733D.enabled = True
-                col_3733D.active = True
-                col_3733D.use_property_split = False
-                col_3733D.use_property_decorate = False
-                col_3733D.scale_x = 1.0
-                col_3733D.scale_y = 1.0
-                col_3733D.alignment = 'Expand'.upper()
-                col_3733D.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-                col_3733D.label(text='End Frame', icon_value=0)
-                col_3733D.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_end_frame', text='', icon_value=0, emboss=True)
+                grid_2745E.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'start_frame', text='Start Frame', icon_value=0, emboss=True)
+                grid_2745E.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'end_frame', text='End Frame', icon_value=0, emboss=True)
             if ((property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers)):
-                box_477AE = box_5B50C.box()
+                box_477AE = col_9E35D.box()
                 box_477AE.alert = False
                 box_477AE.enabled = True
                 box_477AE.active = True
@@ -994,36 +884,48 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                 box_477AE.scale_x = 1.0
                 box_477AE.scale_y = 1.0
                 if not True: box_477AE.operator_context = "EXEC_DEFAULT"
-                box_477AE.label(text='Point Scale', icon_value=string_to_icon('SORTSIZE'))
-                grid_4735D = box_477AE.grid_flow(columns=2, row_major=False, even_columns=False, even_rows=False, align=False)
-                grid_4735D.enabled = True
-                grid_4735D.active = True
-                grid_4735D.use_property_split = False
-                grid_4735D.use_property_decorate = False
-                grid_4735D.alignment = 'Expand'.upper()
-                grid_4735D.scale_x = 1.0
-                grid_4735D.scale_y = 1.0
-                if not True: grid_4735D.operator_context = "EXEC_DEFAULT"
-                grid_4735D.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_point_scale_min', text='Min', icon_value=0, emboss=True)
-                grid_4735D.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_point_scale_max', text='Max', icon_value=0, emboss=True)
-                box_477AE.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_point_scale_random', text='Randomize', icon_value=0, emboss=True)
-                if ((not bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind) and (not bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph) and (not bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise)):
+                box_477AE.label(text='Point Scale', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
+                col_6575B = box_477AE.column(heading='', align=True)
+                col_6575B.alert = False
+                col_6575B.enabled = True
+                col_6575B.active = True
+                col_6575B.use_property_split = False
+                col_6575B.use_property_decorate = False
+                col_6575B.scale_x = 1.0
+                col_6575B.scale_y = 1.0
+                col_6575B.alignment = 'Expand'.upper()
+                col_6575B.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+                row_D35D5 = col_6575B.row(heading='', align=True)
+                row_D35D5.alert = False
+                row_D35D5.enabled = True
+                row_D35D5.active = True
+                row_D35D5.use_property_split = False
+                row_D35D5.use_property_decorate = False
+                row_D35D5.scale_x = 1.0
+                row_D35D5.scale_y = 1.0
+                row_D35D5.alignment = 'Expand'.upper()
+                row_D35D5.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+                row_D35D5.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'point_scale_min', text='Min', icon_value=0, emboss=True)
+                row_D35D5.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'point_scale_max', text='Max', icon_value=0, emboss=True)
+                col_6575B.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'scale_random', text='Randomize', icon_value=0, emboss=True)
+            if ((property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Wind_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Morph_GN' in bpy.context.view_layer.objects.active.modifiers) or (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_3DGS_Point_Animate_Noise_GN' in bpy.context.view_layer.objects.active.modifiers)):
+                if ((not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind) and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph) and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise)):
                     pass
                 else:
-                    col_5B3C1 = box_477AE.column(heading='', align=False)
-                    col_5B3C1.alert = False
-                    col_5B3C1.enabled = True
-                    col_5B3C1.active = True
-                    col_5B3C1.use_property_split = False
-                    col_5B3C1.use_property_decorate = False
-                    col_5B3C1.scale_x = 1.0
-                    col_5B3C1.scale_y = 1.0
-                    col_5B3C1.alignment = 'Expand'.upper()
-                    col_5B3C1.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-                    col_5B3C1.label(text='Attribute Influence', icon_value=145)
-                    col_5B3C1.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_point_scale_attribute', text='', icon_value=0, emboss=True)
+                    box_FB041 = col_9E35D.box()
+                    box_FB041.alert = False
+                    box_FB041.enabled = True
+                    box_FB041.active = True
+                    box_FB041.use_property_split = False
+                    box_FB041.use_property_decorate = False
+                    box_FB041.alignment = 'Expand'.upper()
+                    box_FB041.scale_x = 1.0
+                    box_FB041.scale_y = 1.0
+                    if not True: box_FB041.operator_context = "EXEC_DEFAULT"
+                    box_FB041.label(text='Attribute Influence', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
+                    box_FB041.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'point_scale_attribute', text='', icon_value=0, emboss=True)
             if (property_exists("bpy.context.view_layer.objects.active.modifiers", globals(), locals()) and 'KIRI_Point_Animate_Viewport_Display_GN' in bpy.context.view_layer.objects.active.modifiers):
-                box_B1C84 = box_5B50C.box()
+                box_B1C84 = col_9E35D.box()
                 box_B1C84.alert = False
                 box_B1C84.enabled = True
                 box_B1C84.active = True
@@ -1033,15 +935,117 @@ def sna_global_properties_function_interface_55201(layout_function, ):
                 box_B1C84.scale_x = 1.0
                 box_B1C84.scale_y = 1.0
                 if not True: box_B1C84.operator_context = "EXEC_DEFAULT"
-                box_B1C84.label(text='Viewport Display', icon_value=0)
+                box_B1C84.label(text='Viewport Display', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
                 attr_695C7 = '["' + str('Socket_2' + '"]') 
                 box_B1C84.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Viewport_Display_GN'], attr_695C7, text='', icon_value=0, emboss=True)
 
 
-class SNA_OT_Launch_Kiri_Site_D26Bf(bpy.types.Operator):
-    bl_idname = "sna.launch_kiri_site_d26bf"
-    bl_label = "Launch Kiri Site"
-    bl_description = ""
+def sna_about_and_external_links_interface_function_8E1B8(layout_function, ):
+    box_DD590 = layout_function.box()
+    box_DD590.alert = False
+    box_DD590.enabled = True
+    box_DD590.active = True
+    box_DD590.use_property_split = False
+    box_DD590.use_property_decorate = False
+    box_DD590.alignment = 'Expand'.upper()
+    box_DD590.scale_x = 1.0
+    box_DD590.scale_y = 1.0
+    if not True: box_DD590.operator_context = "EXEC_DEFAULT"
+    col_7EB57 = box_DD590.column(heading='', align=True)
+    col_7EB57.alert = False
+    col_7EB57.enabled = True
+    col_7EB57.active = True
+    col_7EB57.use_property_split = False
+    col_7EB57.use_property_decorate = False
+    col_7EB57.scale_x = 1.0
+    col_7EB57.scale_y = 1.0
+    col_7EB57.alignment = 'Expand'.upper()
+    col_7EB57.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+    box_8183E = col_7EB57.box()
+    box_8183E.alert = False
+    box_8183E.enabled = True
+    box_8183E.active = True
+    box_8183E.use_property_split = False
+    box_8183E.use_property_decorate = False
+    box_8183E.alignment = 'Center'.upper()
+    box_8183E.scale_x = 1.0
+    box_8183E.scale_y = 1.0
+    if not True: box_8183E.operator_context = "EXEC_DEFAULT"
+    box_8183E.label(text='About KIRI Engine', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'nine-points-connected.svg')))
+    box_8183E.template_icon(icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'Addon speel 2.png')), scale=10.0)
+    op = box_8183E.operator('sna.dgs_render_launch_kiri_site_84772', text='Learn More', icon_value=0, emboss=True, depress=False)
+    box_63F09 = col_7EB57.box()
+    box_63F09.alert = False
+    box_63F09.enabled = True
+    box_63F09.active = True
+    box_63F09.use_property_split = False
+    box_63F09.use_property_decorate = True
+    box_63F09.alignment = 'Expand'.upper()
+    box_63F09.scale_x = 1.0
+    box_63F09.scale_y = 1.2000000476837158
+    if not True: box_63F09.operator_context = "EXEC_DEFAULT"
+    row_786FB = box_63F09.row(heading='', align=True)
+    row_786FB.alert = False
+    row_786FB.enabled = True
+    row_786FB.active = True
+    row_786FB.use_property_split = False
+    row_786FB.use_property_decorate = False
+    row_786FB.scale_x = 1.0
+    row_786FB.scale_y = 1.0
+    row_786FB.alignment = 'Expand'.upper()
+    row_786FB.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+    row_786FB.label(text='Documentation', icon_value=0)
+    split_7852F = row_786FB.split(factor=0.30000001192092896, align=True)
+    split_7852F.alert = False
+    split_7852F.enabled = True
+    split_7852F.active = True
+    split_7852F.use_property_split = False
+    split_7852F.use_property_decorate = False
+    split_7852F.scale_x = 1.0
+    split_7852F.scale_y = 1.0
+    split_7852F.alignment = 'Expand'.upper()
+    if not True: split_7852F.operator_context = "EXEC_DEFAULT"
+    op = split_7852F.operator('sna.pa_open_documentation_3b870', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'documentation.svg')), emboss=True, depress=False)
+    op = split_7852F.operator('sna.pa_open_tutorial_video_d0cd5', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'video.svg')), emboss=True, depress=False)
+    box_C5949 = col_7EB57.box()
+    box_C5949.alert = False
+    box_C5949.enabled = True
+    box_C5949.active = True
+    box_C5949.use_property_split = False
+    box_C5949.use_property_decorate = False
+    box_C5949.alignment = 'Expand'.upper()
+    box_C5949.scale_x = 1.0
+    box_C5949.scale_y = 1.0
+    if not True: box_C5949.operator_context = "EXEC_DEFAULT"
+    row_7C27F = box_C5949.row(heading='', align=False)
+    row_7C27F.alert = False
+    row_7C27F.enabled = True
+    row_7C27F.active = True
+    row_7C27F.use_property_split = False
+    row_7C27F.use_property_decorate = False
+    row_7C27F.scale_x = 1.0
+    row_7C27F.scale_y = 1.2000000476837158
+    row_7C27F.alignment = 'Expand'.upper()
+    row_7C27F.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+    row_7C27F.label(text='Get More Addons', icon_value=0)
+    split_57202 = row_7C27F.split(factor=0.5, align=True)
+    split_57202.alert = False
+    split_57202.enabled = True
+    split_57202.active = True
+    split_57202.use_property_split = False
+    split_57202.use_property_decorate = False
+    split_57202.scale_x = 1.0
+    split_57202.scale_y = 1.0
+    split_57202.alignment = 'Expand'.upper()
+    if not True: split_57202.operator_context = "EXEC_DEFAULT"
+    op = split_57202.operator('sna.pa_launch_superhive_store_0bcb5', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'SuperHive Logo White.png')), emboss=True, depress=False)
+    op = split_57202.operator('sna.pa_launch_kiri_blender_addons_page_9427f', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'kiriengine blender addon icon color.svg')), emboss=True, depress=False)
+
+
+class SNA_OT_Dgs_Render_Launch_Kiri_Site_84772(bpy.types.Operator):
+    bl_idname = "sna.dgs_render_launch_kiri_site_84772"
+    bl_label = "3DGS Render: Launch KIRI Site"
+    bl_description = "Launches a browser for the KIRI Engine main site"
     bl_options = {"REGISTER", "UNDO"}
 
     @classmethod
@@ -1051,7 +1055,7 @@ class SNA_OT_Launch_Kiri_Site_D26Bf(bpy.types.Operator):
         return not False
 
     def execute(self, context):
-        url = 'https://www.kiriengine.com/'
+        url = 'https://www.kiriengine.app/'
         # Open the web browser and go to the specified URL
         webbrowser.open(url)
         print(f"Opening web browser to {url}")
@@ -1061,54 +1065,10 @@ class SNA_OT_Launch_Kiri_Site_D26Bf(bpy.types.Operator):
         return self.execute(context)
 
 
-def sna_about_and_external_links_interface_function_8E1B8(layout_function, ):
-    layout_function.label(text='--- About KIRI ---', icon_value=0)
-    layout_function.separator(factor=1.0)
-    box_98A33 = layout_function.box()
-    box_98A33.alert = False
-    box_98A33.enabled = True
-    box_98A33.active = True
-    box_98A33.use_property_split = False
-    box_98A33.use_property_decorate = False
-    box_98A33.alignment = 'Expand'.upper()
-    box_98A33.scale_x = 1.0
-    box_98A33.scale_y = 0.800000011920929
-    if not True: box_98A33.operator_context = "EXEC_DEFAULT"
-    col_F48EE = box_98A33.column(heading='', align=False)
-    col_F48EE.alert = False
-    col_F48EE.enabled = True
-    col_F48EE.active = True
-    col_F48EE.use_property_split = False
-    col_F48EE.use_property_decorate = False
-    col_F48EE.scale_x = 1.0
-    col_F48EE.scale_y = 1.0
-    col_F48EE.alignment = 'Expand'.upper()
-    col_F48EE.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-    col_F48EE.label(text="We're the creators of KIRI Engine, a 3D ", icon_value=0)
-    col_F48EE.label(text='scanning app on iPhone, Android and web', icon_value=0)
-    col_F48EE.label(text="browsers. When we're not coding, we", icon_value=0)
-    col_F48EE.label(text='enjoy messing around with 3D models in', icon_value=0)
-    col_F48EE.label(text='Blender. We are excited to share these', icon_value=0)
-    col_F48EE.label(text='cool add-ons with you, so you can join', icon_value=0)
-    col_F48EE.label(text='in the fun too!', icon_value=0)
-    box_0CFD3 = layout_function.box()
-    box_0CFD3.alert = False
-    box_0CFD3.enabled = True
-    box_0CFD3.active = True
-    box_0CFD3.use_property_split = False
-    box_0CFD3.use_property_decorate = False
-    box_0CFD3.alignment = 'Expand'.upper()
-    box_0CFD3.scale_x = 1.0
-    box_0CFD3.scale_y = 1.0
-    if not True: box_0CFD3.operator_context = "EXEC_DEFAULT"
-    op = box_0CFD3.operator('sna.launch_blender_market_77f72', text='See All Add-ons on Blender Market', icon_value=0, emboss=True, depress=False)
-    op = box_0CFD3.operator('sna.launch_kiri_site_d26bf', text='Learn More About KIRI Engine', icon_value=0, emboss=True, depress=False)
-
-
-class SNA_OT_Launch_Blender_Market_77F72(bpy.types.Operator):
-    bl_idname = "sna.launch_blender_market_77f72"
-    bl_label = "Launch Blender Market"
-    bl_description = ""
+class SNA_OT_Pa_Launch_Superhive_Store_0Bcb5(bpy.types.Operator):
+    bl_idname = "sna.pa_launch_superhive_store_0bcb5"
+    bl_label = "PA: Launch SuperHive Store"
+    bl_description = "Launches a browser for the KIRI Engine SuperHive store"
     bl_options = {"REGISTER", "UNDO"}
 
     @classmethod
@@ -1128,7 +1088,76 @@ class SNA_OT_Launch_Blender_Market_77F72(bpy.types.Operator):
         return self.execute(context)
 
 
-def sna_layer_stack_function_interface_D2063(layout_function, ):
+class SNA_OT_Pa_Launch_Kiri_Blender_Addons_Page_9427F(bpy.types.Operator):
+    bl_idname = "sna.pa_launch_kiri_blender_addons_page_9427f"
+    bl_label = "PA: Launch KIRI Blender Addons page"
+    bl_description = "Launches a browser for the KIRI Engine Blender Market store"
+    bl_options = {"REGISTER", "UNDO"}
+
+    @classmethod
+    def poll(cls, context):
+        if bpy.app.version >= (3, 0, 0) and True:
+            cls.poll_message_set('')
+        return not False
+
+    def execute(self, context):
+        url = 'https://www.kiriengine.app/blender-addon'
+        # Open the web browser and go to the specified URL
+        webbrowser.open(url)
+        print(f"Opening web browser to {url}")
+        return {"FINISHED"}
+
+    def invoke(self, context, event):
+        return self.execute(context)
+
+
+class SNA_OT_Pa_Open_Documentation_3B870(bpy.types.Operator):
+    bl_idname = "sna.pa_open_documentation_3b870"
+    bl_label = "PA: Open Documentation"
+    bl_description = "Launches a browser with the addon documentation"
+    bl_options = {"REGISTER", "UNDO"}
+
+    @classmethod
+    def poll(cls, context):
+        if bpy.app.version >= (3, 0, 0) and True:
+            cls.poll_message_set('')
+        return not False
+
+    def execute(self, context):
+        url = 'https://www.kiriengine.app/blender-addon'
+        # Open the web browser and go to the specified URL
+        webbrowser.open(url)
+        print(f"Opening web browser to {url}")
+        return {"FINISHED"}
+
+    def invoke(self, context, event):
+        return self.execute(context)
+
+
+class SNA_OT_Pa_Open_Tutorial_Video_D0Cd5(bpy.types.Operator):
+    bl_idname = "sna.pa_open_tutorial_video_d0cd5"
+    bl_label = "PA: Open Tutorial Video"
+    bl_description = "Launches a browser with the addon documentation video"
+    bl_options = {"REGISTER", "UNDO"}
+
+    @classmethod
+    def poll(cls, context):
+        if bpy.app.version >= (3, 0, 0) and True:
+            cls.poll_message_set('')
+        return not False
+
+    def execute(self, context):
+        url = 'https://www.youtube.com/@BlenderAddon-fromKIRI'
+        # Open the web browser and go to the specified URL
+        webbrowser.open(url)
+        print(f"Opening web browser to {url}")
+        return {"FINISHED"}
+
+    def invoke(self, context, event):
+        return self.execute(context)
+
+
+def sna_layer_stack_menu_D2063(layout_function, ):
     if (bpy.context.view_layer.objects.active == None):
         pass
     else:
@@ -1143,9 +1172,19 @@ def sna_layer_stack_function_interface_D2063(layout_function, ):
             box_4A42B.scale_x = 1.0
             box_4A42B.scale_y = 1.0
             if not True: box_4A42B.operator_context = "EXEC_DEFAULT"
-            box_4A42B.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_decimate', text='Enable Decimate', icon_value=0, emboss=True, toggle=True)
-            box_4A42B.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_crop_box', text='Enable Crop Box', icon_value=0, emboss=True, toggle=True)
-            grid_2EA86 = box_4A42B.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
+            col_B74D3 = box_4A42B.column(heading='', align=True)
+            col_B74D3.alert = False
+            col_B74D3.enabled = True
+            col_B74D3.active = True
+            col_B74D3.use_property_split = False
+            col_B74D3.use_property_decorate = False
+            col_B74D3.scale_x = 1.0
+            col_B74D3.scale_y = 1.0
+            col_B74D3.alignment = 'Expand'.upper()
+            col_B74D3.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
+            col_B74D3.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_decimate', text='Enable Decimate', icon_value=0, emboss=True, toggle=True)
+            col_B74D3.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_crop_box', text='Enable Crop Box', icon_value=0, emboss=True, toggle=True)
+            grid_2EA86 = col_B74D3.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=True)
             grid_2EA86.enabled = True
             grid_2EA86.active = True
             grid_2EA86.use_property_split = False
@@ -1154,11 +1193,37 @@ def sna_layer_stack_function_interface_D2063(layout_function, ):
             grid_2EA86.scale_x = 1.0
             grid_2EA86.scale_y = 1.0
             if not True: grid_2EA86.operator_context = "EXEC_DEFAULT"
-            grid_2EA86.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_wind', text='Enable Wind', icon_value=0, emboss=True, toggle=True)
-            grid_2EA86.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_morph', text='Enable Morph', icon_value=0, emboss=True, toggle=True)
-            box_4A42B.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_noise', text='Enable Noise', icon_value=0, emboss=True, toggle=True)
-            box_4A42B.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_snap', text='Enable Snap To Shape', icon_value=0, emboss=True, toggle=True)
-            box_4A42B.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_enable_wireframe', text='Enable Wireframe', icon_value=0, emboss=True, toggle=True)
+            grid_2EA86.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_wind', text='Enable Wind', icon_value=0, emboss=True, toggle=True)
+            grid_2EA86.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_morph', text='Enable Morph', icon_value=0, emboss=True, toggle=True)
+            col_B74D3.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_noise', text='Enable Noise', icon_value=0, emboss=True, toggle=True)
+            col_B74D3.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_snap', text='Enable Snap To Shape', icon_value=0, emboss=True, toggle=True)
+            col_B74D3.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'enable_wireframe', text='Enable Wireframe', icon_value=0, emboss=True, toggle=True)
+
+
+class SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_B94F8(bpy.types.Panel):
+    bl_label = 'Point Animate by KIRI Engine'
+    bl_idname = 'SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_B94F8'
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_context = ''
+    bl_category = 'Point Animate'
+    bl_order = 0
+    bl_ui_units_x=0
+
+    @classmethod
+    def poll(cls, context):
+        return not (False)
+
+    def draw_header(self, context):
+        layout = self.layout
+        layout.template_icon(icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'kiriengine icon.png')), scale=0.0)
+
+    def draw(self, context):
+        layout = self.layout
+        layout_function = layout
+        sna_all_functions_main_function_interface_AECE6(layout_function, )
+        layout_function = layout
+        sna_about_and_external_links_interface_function_8E1B8(layout_function, )
 
 
 def sna_quick_control_function_interface_80AF1(layout_function, ):
@@ -1179,7 +1244,7 @@ def sna_quick_control_function_interface_80AF1(layout_function, ):
                 box_4F7E4.scale_x = 1.0
                 box_4F7E4.scale_y = 1.0
                 if not True: box_4F7E4.operator_context = "EXEC_DEFAULT"
-                grid_E5771 = box_4F7E4.grid_flow(columns=2, row_major=False, even_columns=False, even_rows=False, align=False)
+                grid_E5771 = box_4F7E4.grid_flow(columns=2, row_major=False, even_columns=False, even_rows=False, align=True)
                 grid_E5771.enabled = True
                 grid_E5771.active = True
                 grid_E5771.use_property_split = False
@@ -1209,12 +1274,12 @@ class SNA_OT_Setup_Quick_Dissolve_94289(bpy.types.Operator):
 
     def execute(self, context):
         if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_76'] == 1):
-            bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'Timeline:0%-50%=0-1'
+            bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'Timeline:0%-50%=0-1'
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 6
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 6
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 6
         else:
-            bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'Timeline:1-0'
+            bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'Timeline:1-0'
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 1
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 1
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 1
@@ -1227,9 +1292,9 @@ class SNA_OT_Setup_Quick_Dissolve_94289(bpy.types.Operator):
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_60'] = 10.0
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_63'] = 1
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_61'] = 0.20000000298023224
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_Point_Animate_Wind_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_3DGS_Point_Animate_Noise_GN')
         return {"FINISHED"}
 
@@ -1266,8 +1331,8 @@ class SNA_OT_Setup_Quick_Dissolve_94289(bpy.types.Operator):
         grid_BF280.scale_x = 1.0
         grid_BF280.scale_y = 1.0
         if not True: grid_BF280.operator_context = "EXEC_DEFAULT"
-        grid_BF280.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_start_frame', text='Start Frame', icon_value=0, emboss=True)
-        grid_BF280.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_end_frame', text='End Frame', icon_value=0, emboss=True)
+        grid_BF280.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'start_frame', text='Start Frame', icon_value=0, emboss=True)
+        grid_BF280.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'end_frame', text='End Frame', icon_value=0, emboss=True)
         box_DF46D = box_14FE2.box()
         box_DF46D.alert = False
         box_DF46D.enabled = True
@@ -1292,7 +1357,7 @@ class SNA_OT_Setup_Quick_Dissolve_94289(bpy.types.Operator):
             box_0A56D.scale_y = 1.0
             if not True: box_0A56D.operator_context = "EXEC_DEFAULT"
             box_0A56D.label(text='Input Mesh Colour Texture', icon_value=0)
-            box_0A56D.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE')
+            box_0A56D.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
 
     def invoke(self, context, event):
         sna_add_point_edit_modifiers_function_execute_D32BB()
@@ -1313,12 +1378,12 @@ class SNA_OT_Setup_Quick_Morph_Dc267(bpy.types.Operator):
 
     def execute(self, context):
         if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_60'] == 1):
-            bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'Timeline:0-1-0'
+            bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'Timeline:0-1-0'
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 8
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 8
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 8
         else:
-            bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'No Attribute Influence'
+            bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'No Attribute Influence'
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 0
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 0
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 0
@@ -1328,9 +1393,9 @@ class SNA_OT_Setup_Quick_Morph_Dc267(bpy.types.Operator):
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_60'] = 10.0
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_63'] = 10
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_61'] = 0.20000000298023224
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_Point_Animate_Morph_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_3DGS_Point_Animate_Noise_GN')
         return {"FINISHED"}
 
@@ -1367,8 +1432,8 @@ class SNA_OT_Setup_Quick_Morph_Dc267(bpy.types.Operator):
         grid_A4BB5.scale_x = 1.0
         grid_A4BB5.scale_y = 1.0
         if not True: grid_A4BB5.operator_context = "EXEC_DEFAULT"
-        grid_A4BB5.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_start_frame', text='Start Frame', icon_value=0, emboss=True)
-        grid_A4BB5.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_end_frame', text='End Frame', icon_value=0, emboss=True)
+        grid_A4BB5.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'start_frame', text='Start Frame', icon_value=0, emboss=True)
+        grid_A4BB5.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'end_frame', text='End Frame', icon_value=0, emboss=True)
         box_04555 = box_12C4C.box()
         box_04555.alert = False
         box_04555.enabled = True
@@ -1424,7 +1489,7 @@ class SNA_OT_Setup_Quick_Morph_Dc267(bpy.types.Operator):
                 attr_56139 = '["' + str('Socket_57' + '"]') 
                 col_E5D49.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], attr_56139, text='', icon_value=0, emboss=True)
                 col_E5D49.label(text='Target Mesh Colour Texture', icon_value=0)
-                col_E5D49.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE')
+                col_E5D49.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
         else:
             col_29F93 = box_04555.column(heading='', align=False)
             col_29F93.alert = False
@@ -1447,7 +1512,7 @@ class SNA_OT_Setup_Quick_Morph_Dc267(bpy.types.Operator):
             box_CA767.scale_y = 1.0
             if not True: box_CA767.operator_context = "EXEC_DEFAULT"
             box_CA767.label(text='Input Mesh Colour Texture', icon_value=0)
-            box_CA767.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE')
+            box_CA767.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
             box_EB96F = col_29F93.box()
             box_EB96F.alert = False
             box_EB96F.enabled = True
@@ -1462,7 +1527,7 @@ class SNA_OT_Setup_Quick_Morph_Dc267(bpy.types.Operator):
             attr_B3D74 = '["' + str('Socket_57' + '"]') 
             box_EB96F.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], attr_B3D74, text='', icon_value=0, emboss=True)
             box_EB96F.label(text='Target Mesh Colour Texture', icon_value=0)
-            box_EB96F.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE')
+            box_EB96F.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
 
     def invoke(self, context, event):
         sna_add_point_edit_modifiers_function_execute_D32BB()
@@ -1487,7 +1552,7 @@ class SNA_OT_Setup_Quick_Magic_Ce2Cf(bpy.types.Operator):
 
     def execute(self, context):
         if (bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_98'] == 1):
-            bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'Timeline:0-1-0'
+            bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'Timeline:0-1-0'
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 8
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 8
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 8
@@ -1495,7 +1560,7 @@ class SNA_OT_Setup_Quick_Magic_Ce2Cf(bpy.types.Operator):
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_82'] = 1
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_76'] = 6
         else:
-            bpy.context.view_layer.objects.active.sna_kiri_pa_point_scale_attribute = 'Timeline:1-0'
+            bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.point_scale_attribute = 'Timeline:1-0'
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_72'] = 1
             bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_69'] = 1
             bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_97'] = 1
@@ -1503,7 +1568,7 @@ class SNA_OT_Setup_Quick_Magic_Ce2Cf(bpy.types.Operator):
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_60'] = 3.0
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_63'] = 1
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_61'] = 0.20000000298023224
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_3DGS_Point_Animate_Noise_GN')
         return {"FINISHED"}
 
@@ -1540,8 +1605,8 @@ class SNA_OT_Setup_Quick_Magic_Ce2Cf(bpy.types.Operator):
         grid_8D9FB.scale_x = 1.0
         grid_8D9FB.scale_y = 1.0
         if not True: grid_8D9FB.operator_context = "EXEC_DEFAULT"
-        grid_8D9FB.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_start_frame', text='Start Frame', icon_value=0, emboss=True)
-        grid_8D9FB.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_end_frame', text='End Frame', icon_value=0, emboss=True)
+        grid_8D9FB.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'start_frame', text='Start Frame', icon_value=0, emboss=True)
+        grid_8D9FB.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'end_frame', text='End Frame', icon_value=0, emboss=True)
         box_85484 = box_28423.box()
         box_85484.alert = False
         box_85484.enabled = True
@@ -1566,7 +1631,7 @@ class SNA_OT_Setup_Quick_Magic_Ce2Cf(bpy.types.Operator):
             box_0A1EF.scale_y = 1.0
             if not True: box_0A1EF.operator_context = "EXEC_DEFAULT"
             box_0A1EF.label(text='Input Mesh Colour Texture', icon_value=0)
-            box_0A1EF.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE')
+            box_0A1EF.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Mesh_To_Points_GN'], '["Socket_2"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
 
     def invoke(self, context, event):
         sna_add_point_edit_modifiers_function_execute_D32BB()
@@ -1607,11 +1672,11 @@ class SNA_OT_Setup_Quick_Tech_Af450(bpy.types.Operator):
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_37'] = 8
         bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_24'] = 1
         bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_57'] = 8
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_snap = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_snap = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_3DGS_Point_Animate_Snap_To_Shape_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wireframe = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wireframe = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_Point_Animate_Wireframe_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise = True
         sna_turn_modifier_on_off_function_execute_C4736(True, 'KIRI_3DGS_Point_Animate_Noise_GN')
         return {"FINISHED"}
 
@@ -1648,8 +1713,8 @@ class SNA_OT_Setup_Quick_Tech_Af450(bpy.types.Operator):
         grid_7ECED.scale_x = 1.0
         grid_7ECED.scale_y = 1.0
         if not True: grid_7ECED.operator_context = "EXEC_DEFAULT"
-        grid_7ECED.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_start_frame', text='Start Frame', icon_value=0, emboss=True)
-        grid_7ECED.prop(bpy.context.view_layer.objects.active, 'sna_kiri_pa_end_frame', text='End Frame', icon_value=0, emboss=True)
+        grid_7ECED.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'start_frame', text='Start Frame', icon_value=0, emboss=True)
+        grid_7ECED.prop(bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties, 'end_frame', text='End Frame', icon_value=0, emboss=True)
 
     def invoke(self, context, event):
         sna_add_point_edit_modifiers_function_execute_D32BB()
@@ -1657,7 +1722,7 @@ class SNA_OT_Setup_Quick_Tech_Af450(bpy.types.Operator):
 
 
 def sna_morph_function_interface_BAD21(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph:
         pass
     else:
         box_FCAAD = layout_function.box()
@@ -1671,7 +1736,7 @@ def sna_morph_function_interface_BAD21(layout_function, ):
         box_FCAAD.scale_y = 1.0
         if not True: box_FCAAD.operator_context = "EXEC_DEFAULT"
         box_FCAAD.label(text='Morph is disabled', icon_value=0)
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_morph_baked:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.morph_baked:
         box_05E9F = layout_function.box()
         box_05E9F.alert = True
         box_05E9F.enabled = True
@@ -1695,7 +1760,7 @@ def sna_morph_function_interface_BAD21(layout_function, ):
     col_A5668.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
     box_1506D = col_A5668.box()
     box_1506D.alert = False
-    box_1506D.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph and (not bpy.context.view_layer.objects.active.sna_kiri_pa_morph_baked))
+    box_1506D.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.morph_baked))
     box_1506D.active = True
     box_1506D.use_property_split = False
     box_1506D.use_property_decorate = False
@@ -1716,7 +1781,6 @@ def sna_morph_function_interface_BAD21(layout_function, ):
     box_0976B.label(text='Input / Output', icon_value=0)
     attr_7F97D = '["' + str('Socket_60' + '"]') 
     box_0976B.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], attr_7F97D, text='', icon_value=0, emboss=True, slider=True)
-    box_1506D.separator(factor=1.0)
     if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN']['Socket_60'] == 5):
         box_306C3 = box_1506D.box()
         box_306C3.alert = False
@@ -1732,7 +1796,7 @@ def sna_morph_function_interface_BAD21(layout_function, ):
         attr_9840A = '["' + str('Socket_57' + '"]') 
         box_306C3.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], attr_9840A, text='', icon_value=0, emboss=True, slider=True)
         box_306C3.label(text='Target Mesh Texture', icon_value=0)
-        box_306C3.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE')
+        box_306C3.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
     else:
         box_DAAB6 = box_1506D.box()
         box_DAAB6.alert = False
@@ -1762,7 +1826,7 @@ def sna_morph_function_interface_BAD21(layout_function, ):
             attr_02258 = '["' + str('Socket_57' + '"]') 
             box_483DC.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], attr_02258, text='', icon_value=0, emboss=True, slider=True)
             box_483DC.label(text='Target Mesh Texture', icon_value=0)
-            box_483DC.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE')
+            box_483DC.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], '["Socket_59"]', bpy.data, 'images', text='', icon='NONE', item_search_property="name")
         else:
             box_3AB7F = box_DAAB6.box()
             box_3AB7F.alert = False
@@ -1782,7 +1846,7 @@ def sna_morph_function_interface_BAD21(layout_function, ):
             box_3AB7F.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Morph_GN'], attr_5BAB3, text='Linearize Colour', icon_value=0, emboss=True, slider=True, toggle=True)
     col_A5668.separator(factor=1.0)
     grid_FEFF5 = col_A5668.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
-    grid_FEFF5.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_morph
+    grid_FEFF5.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_morph
     grid_FEFF5.active = True
     grid_FEFF5.use_property_split = False
     grid_FEFF5.use_property_decorate = False
@@ -1811,7 +1875,7 @@ def sna_morph_function_interface_BAD21(layout_function, ):
     box_231E8.scale_x = 1.0
     box_231E8.scale_y = 2.0
     if not True: box_231E8.operator_context = "EXEC_DEFAULT"
-    op = box_231E8.operator('sna.remove_bake_morph_settings_fdef2', text='', icon_value=string_to_icon('TRASH'), emboss=True, depress=False)
+    op = box_231E8.operator('sna.remove_bake_morph_settings_fdef2', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'trash.svg')), emboss=True, depress=False)
 
 
 class SNA_OT_Bake_Morph_Settings_29B13(bpy.types.Operator):
@@ -1828,7 +1892,7 @@ class SNA_OT_Bake_Morph_Settings_29B13(bpy.types.Operator):
 
     def execute(self, context):
         sna_run_bake_node_function_execute_00810('KIRI_Point_Animate_Morph_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_morph_baked = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.morph_baked = True
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -1849,7 +1913,7 @@ class SNA_OT_Remove_Bake_Morph_Settings_Fdef2(bpy.types.Operator):
 
     def execute(self, context):
         sna_remove_bake_node_function_execute_80F90('KIRI_Point_Animate_Morph_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_morph_baked = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.morph_baked = False
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -1857,7 +1921,7 @@ class SNA_OT_Remove_Bake_Morph_Settings_Fdef2(bpy.types.Operator):
 
 
 def sna_noise_function_interface_05231(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise:
         pass
     else:
         box_91B0E = layout_function.box()
@@ -1871,7 +1935,7 @@ def sna_noise_function_interface_05231(layout_function, ):
         box_91B0E.scale_y = 1.0
         if not True: box_91B0E.operator_context = "EXEC_DEFAULT"
         box_91B0E.label(text='Noise is disabled', icon_value=0)
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_noise_baked:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.noise_baked:
         box_C0B76 = layout_function.box()
         box_C0B76.alert = True
         box_C0B76.enabled = True
@@ -1895,7 +1959,7 @@ def sna_noise_function_interface_05231(layout_function, ):
     col_ACF71.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
     box_C9C2C = col_ACF71.box()
     box_C9C2C.alert = False
-    box_C9C2C.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise and (not bpy.context.view_layer.objects.active.sna_kiri_pa_noise_baked))
+    box_C9C2C.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.noise_baked))
     box_C9C2C.active = True
     box_C9C2C.use_property_split = False
     box_C9C2C.use_property_decorate = False
@@ -1916,7 +1980,6 @@ def sna_noise_function_interface_05231(layout_function, ):
     box_2B794.label(text='Input / Output', icon_value=0)
     attr_27B2B = '["' + str('Socket_98' + '"]') 
     box_2B794.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN'], attr_27B2B, text='', icon_value=0, emboss=True, slider=True)
-    box_C9C2C.separator(factor=1.0)
     box_51D21 = box_C9C2C.box()
     box_51D21.alert = False
     box_51D21.enabled = True
@@ -1987,7 +2050,6 @@ def sna_noise_function_interface_05231(layout_function, ):
     box_CB573.label(text='Phase - Attribute Influence', icon_value=0)
     attr_16CDE = '["' + str('Socket_62' + '"]') 
     box_CB573.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN'], attr_16CDE, text='', icon_value=0, emboss=True)
-    box_C9C2C.separator(factor=1.0)
     if (bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN']['Socket_98'] == 0):
         pass
     else:
@@ -2106,7 +2168,7 @@ def sna_noise_function_interface_05231(layout_function, ):
             box_89A74.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Noise_GN'], attr_7358D, text='', icon_value=0, emboss=True)
     col_ACF71.separator(factor=1.0)
     grid_F32FF = col_ACF71.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
-    grid_F32FF.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_noise
+    grid_F32FF.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_noise
     grid_F32FF.active = True
     grid_F32FF.use_property_split = False
     grid_F32FF.use_property_decorate = False
@@ -2135,7 +2197,7 @@ def sna_noise_function_interface_05231(layout_function, ):
     box_6A8CD.scale_x = 1.0
     box_6A8CD.scale_y = 2.0
     if not True: box_6A8CD.operator_context = "EXEC_DEFAULT"
-    op = box_6A8CD.operator('sna.remove_bake_noise_settings_714b1', text='', icon_value=string_to_icon('TRASH'), emboss=True, depress=False)
+    op = box_6A8CD.operator('sna.remove_bake_noise_settings_714b1', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'trash.svg')), emboss=True, depress=False)
 
 
 class SNA_OT_Bake_Noise_Settings_354Ca(bpy.types.Operator):
@@ -2152,7 +2214,7 @@ class SNA_OT_Bake_Noise_Settings_354Ca(bpy.types.Operator):
 
     def execute(self, context):
         sna_run_bake_node_function_execute_00810('KIRI_3DGS_Point_Animate_Noise_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_noise_baked = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.noise_baked = True
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -2173,7 +2235,7 @@ class SNA_OT_Remove_Bake_Noise_Settings_714B1(bpy.types.Operator):
 
     def execute(self, context):
         sna_remove_bake_node_function_execute_80F90('KIRI_3DGS_Point_Animate_Noise_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_noise_baked = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.noise_baked = False
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -2181,7 +2243,7 @@ class SNA_OT_Remove_Bake_Noise_Settings_714B1(bpy.types.Operator):
 
 
 def sna_snap_function_interface_8E0BA(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_snap:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_snap:
         pass
     else:
         box_23173 = layout_function.box()
@@ -2195,7 +2257,7 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
         box_23173.scale_y = 1.0
         if not True: box_23173.operator_context = "EXEC_DEFAULT"
         box_23173.label(text='Snap To Shape is disabled', icon_value=0)
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_snap_baked:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.snap_baked:
         box_ACF4C = layout_function.box()
         box_ACF4C.alert = True
         box_ACF4C.enabled = True
@@ -2219,7 +2281,7 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     col_7B974.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
     box_3DB4C = col_7B974.box()
     box_3DB4C.alert = False
-    box_3DB4C.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_enable_snap and (not bpy.context.view_layer.objects.active.sna_kiri_pa_snap_baked))
+    box_3DB4C.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_snap and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.snap_baked))
     box_3DB4C.active = True
     box_3DB4C.use_property_split = False
     box_3DB4C.use_property_decorate = False
@@ -2239,7 +2301,7 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     if not True: box_6FD5B.operator_context = "EXEC_DEFAULT"
     attr_5000D = '["' + str('Socket_6' + '"]') 
     box_6FD5B.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_5000D, text='Preview Shapes', icon_value=0, emboss=True, slider=False, toggle=True)
-    col_58B32 = box_3DB4C.column(heading='', align=False)
+    col_58B32 = box_3DB4C.column(heading='', align=True)
     col_58B32.alert = False
     col_58B32.enabled = True
     col_58B32.active = True
@@ -2273,7 +2335,7 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     box_7973D.scale_y = 1.0
     if not True: box_7973D.operator_context = "EXEC_DEFAULT"
     box_7973D.label(text='Grid Points', icon_value=0)
-    grid_1DA3B = box_7973D.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
+    grid_1DA3B = box_7973D.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=True)
     grid_1DA3B.enabled = True
     grid_1DA3B.active = True
     grid_1DA3B.use_property_split = False
@@ -2357,7 +2419,6 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     row_B8609.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
     attr_04162 = '["' + str('Socket_27' + '"]') 
     row_B8609.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_04162, text='', icon_value=0, emboss=True, slider=False, toggle=False)
-    box_3DB4C.separator(factor=1.0)
     col_0215A = box_3DB4C.column(heading='', align=False)
     col_0215A.alert = False
     col_0215A.enabled = True
@@ -2464,7 +2525,6 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     row_372D2.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
     attr_5CCCD = '["' + str('Socket_3' + '"]') 
     row_372D2.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_5CCCD, text='', icon_value=0, emboss=True, slider=False, toggle=False)
-    box_3DB4C.separator(factor=1.0)
     box_5D225 = box_3DB4C.box()
     box_5D225.alert = False
     box_5D225.enabled = True
@@ -2480,7 +2540,6 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     box_5D225.label(text='Selection - Attribute Influence', icon_value=0)
     attr_C869B = '["' + str('Socket_22' + '"]') 
     box_5D225.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_C869B, text='', icon_value=0, emboss=True, toggle=True)
-    box_3DB4C.separator(factor=1.0)
     box_CC43C = box_3DB4C.box()
     box_CC43C.alert = False
     box_CC43C.enabled = True
@@ -2514,11 +2573,10 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
             attr_A8C05 = '["' + str('Socket_15' + '"]') 
             col_9069F.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_A8C05, text='', icon_value=0, emboss=True)
         else:
-            col_9069F.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], '["Socket_16"]', bpy.data, 'collections', text='', icon='NONE')
+            col_9069F.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], '["Socket_16"]', bpy.data, 'collections', text='', icon='NONE', item_search_property="name")
         if ((bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN']['Socket_12'] == 3) or (bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN']['Socket_12'] == 4)):
             attr_77D2D = '["' + str('Socket_11' + '"]') 
             col_9069F.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_77D2D, text='Distance Threshold', icon_value=0, emboss=True)
-    box_3DB4C.separator(factor=1.0)
     box_243C2 = box_3DB4C.box()
     box_243C2.alert = False
     box_243C2.enabled = True
@@ -2536,7 +2594,7 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     box_243C2.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_3DGS_Point_Animate_Snap_To_Shape_GN'], attr_D6520, text='', icon_value=0, emboss=True, toggle=True)
     col_7B974.separator(factor=1.0)
     grid_0E6D5 = col_7B974.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
-    grid_0E6D5.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_snap
+    grid_0E6D5.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_snap
     grid_0E6D5.active = True
     grid_0E6D5.use_property_split = False
     grid_0E6D5.use_property_decorate = False
@@ -2565,7 +2623,7 @@ def sna_snap_function_interface_8E0BA(layout_function, ):
     box_3C394.scale_x = 1.0
     box_3C394.scale_y = 2.0
     if not True: box_3C394.operator_context = "EXEC_DEFAULT"
-    op = box_3C394.operator('sna.remove_bake_snap_settings_a2139', text='', icon_value=string_to_icon('TRASH'), emboss=True, depress=False)
+    op = box_3C394.operator('sna.remove_bake_snap_settings_a2139', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'trash.svg')), emboss=True, depress=False)
 
 
 class SNA_OT_Bake_Snap_Settings_9226D(bpy.types.Operator):
@@ -2582,7 +2640,7 @@ class SNA_OT_Bake_Snap_Settings_9226D(bpy.types.Operator):
 
     def execute(self, context):
         sna_run_bake_node_function_execute_00810('KIRI_3DGS_Point_Animate_Snap_To_Shape_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_snap_baked = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.snap_baked = True
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -2603,7 +2661,7 @@ class SNA_OT_Remove_Bake_Snap_Settings_A2139(bpy.types.Operator):
 
     def execute(self, context):
         sna_remove_bake_node_function_execute_80F90('KIRI_3DGS_Point_Animate_Snap_To_Shape_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_snap_baked = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.snap_baked = False
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -2611,7 +2669,7 @@ class SNA_OT_Remove_Bake_Snap_Settings_A2139(bpy.types.Operator):
 
 
 def sna_wind_function_interface_178D5(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind:
         pass
     else:
         box_B8D90 = layout_function.box()
@@ -2625,7 +2683,7 @@ def sna_wind_function_interface_178D5(layout_function, ):
         box_B8D90.scale_y = 1.0
         if not True: box_B8D90.operator_context = "EXEC_DEFAULT"
         box_B8D90.label(text='Wind is disabled', icon_value=0)
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_wind_baked:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wind_baked:
         box_3E3AC = layout_function.box()
         box_3E3AC.alert = True
         box_3E3AC.enabled = True
@@ -2647,9 +2705,9 @@ def sna_wind_function_interface_178D5(layout_function, ):
     col_EECF5.scale_y = 1.0
     col_EECF5.alignment = 'Expand'.upper()
     col_EECF5.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
-    col_62BDC = col_EECF5.column(heading='', align=False)
+    col_62BDC = col_EECF5.column(heading='', align=True)
     col_62BDC.alert = False
-    col_62BDC.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind and (not bpy.context.view_layer.objects.active.sna_kiri_pa_wind_baked))
+    col_62BDC.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wind_baked))
     col_62BDC.active = True
     col_62BDC.use_property_split = False
     col_62BDC.use_property_decorate = False
@@ -2670,7 +2728,6 @@ def sna_wind_function_interface_178D5(layout_function, ):
     box_AB2B5.label(text='Input / Output', icon_value=0)
     attr_B15E4 = '["' + str('Socket_76' + '"]') 
     box_AB2B5.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_B15E4, text='', icon_value=0, emboss=True, slider=True)
-    col_62BDC.separator(factor=1.0)
     if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_76'] == 1):
         box_297F2 = col_62BDC.box()
         box_297F2.alert = False
@@ -2699,7 +2756,6 @@ def sna_wind_function_interface_178D5(layout_function, ):
             box_9675F.label(text='Face Scale', icon_value=0)
             attr_A4E72 = '["' + str('Socket_78' + '"]') 
             box_9675F.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_A4E72, text='', icon_value=0, emboss=True, slider=True)
-    col_62BDC.separator(factor=1.0)
     box_EF746 = col_62BDC.box()
     box_EF746.alert = False
     box_EF746.enabled = True
@@ -2727,7 +2783,6 @@ def sna_wind_function_interface_178D5(layout_function, ):
         box_190C4.label(text='Selection Factor', icon_value=0)
         attr_741C8 = '["' + str('Socket_54' + '"]') 
         box_190C4.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_741C8, text='', icon_value=0, emboss=True, slider=True)
-    col_62BDC.separator(factor=1.0)
     box_63AD7 = col_62BDC.box()
     box_63AD7.alert = False
     box_63AD7.enabled = True
@@ -2771,7 +2826,7 @@ def sna_wind_function_interface_178D5(layout_function, ):
             attr_47589 = '["' + str('Socket_66' + '"]') 
             box_2BEB3.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_47589, text='', icon_value=0, emboss=True, slider=True)
         else:
-            box_2BEB3.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], '["Socket_59"]', bpy.data, 'collections', text='', icon='NONE')
+            box_2BEB3.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], '["Socket_59"]', bpy.data, 'collections', text='', icon='NONE', item_search_property="name")
         if ((bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_62'] == 3) or (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN']['Socket_62'] == 4)):
             box_B4972 = col_6ECCB.box()
             box_B4972.alert = False
@@ -2786,7 +2841,6 @@ def sna_wind_function_interface_178D5(layout_function, ):
             box_B4972.label(text='Distance Threshold', icon_value=0)
             attr_4BA90 = '["' + str('Socket_68' + '"]') 
             box_B4972.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_4BA90, text='', icon_value=0, emboss=True, slider=False)
-    col_62BDC.separator(factor=1.0)
     box_62887 = col_62BDC.box()
     box_62887.alert = False
     box_62887.enabled = True
@@ -2809,7 +2863,6 @@ def sna_wind_function_interface_178D5(layout_function, ):
     box_62887.label(text='Random Divider', icon_value=0)
     attr_B044B = '["' + str('Socket_63' + '"]') 
     box_62887.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_B044B, text='', icon_value=0, emboss=True, slider=False)
-    col_62BDC.separator(factor=1.0)
     box_D6406 = col_62BDC.box()
     box_D6406.alert = False
     box_D6406.enabled = True
@@ -2825,7 +2878,7 @@ def sna_wind_function_interface_178D5(layout_function, ):
     box_D6406.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wind_GN'], attr_2B9EA, text='Age Threshold', icon_value=0, emboss=True, slider=True)
     col_EECF5.separator(factor=1.0)
     grid_14F4F = col_EECF5.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
-    grid_14F4F.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wind
+    grid_14F4F.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wind
     grid_14F4F.active = True
     grid_14F4F.use_property_split = False
     grid_14F4F.use_property_decorate = False
@@ -2854,7 +2907,7 @@ def sna_wind_function_interface_178D5(layout_function, ):
     box_C0C37.scale_x = 1.0
     box_C0C37.scale_y = 2.0
     if not True: box_C0C37.operator_context = "EXEC_DEFAULT"
-    op = box_C0C37.operator('sna.remove_bake_wind_settings_3c21d', text='', icon_value=string_to_icon('TRASH'), emboss=True, depress=False)
+    op = box_C0C37.operator('sna.remove_bake_wind_settings_3c21d', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'trash.svg')), emboss=True, depress=False)
 
 
 class SNA_OT_Bake_Wind_Settings_8567D(bpy.types.Operator):
@@ -2871,7 +2924,7 @@ class SNA_OT_Bake_Wind_Settings_8567D(bpy.types.Operator):
 
     def execute(self, context):
         sna_run_bake_node_function_execute_00810('KIRI_Point_Animate_Wind_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_wind_baked = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wind_baked = True
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -2892,7 +2945,7 @@ class SNA_OT_Remove_Bake_Wind_Settings_3C21D(bpy.types.Operator):
 
     def execute(self, context):
         sna_remove_bake_node_function_execute_80F90('KIRI_Point_Animate_Wind_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_wind_baked = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wind_baked = False
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -2900,7 +2953,7 @@ class SNA_OT_Remove_Bake_Wind_Settings_3C21D(bpy.types.Operator):
 
 
 def sna_wireframe_function_interface_67E1B(layout_function, ):
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wireframe:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wireframe:
         pass
     else:
         box_68D2A = layout_function.box()
@@ -2914,7 +2967,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
         box_68D2A.scale_y = 1.0
         if not True: box_68D2A.operator_context = "EXEC_DEFAULT"
         box_68D2A.label(text='Wireframe is disabled', icon_value=0)
-    if bpy.context.view_layer.objects.active.sna_kiri_pa_wireframe_baked:
+    if bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wireframe_baked:
         box_913EC = layout_function.box()
         box_913EC.alert = True
         box_913EC.enabled = True
@@ -2938,7 +2991,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     col_1E0D3.operator_context = "INVOKE_DEFAULT" if True else "EXEC_DEFAULT"
     box_5C0DE = col_1E0D3.box()
     box_5C0DE.alert = False
-    box_5C0DE.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wireframe and (not bpy.context.view_layer.objects.active.sna_kiri_pa_wireframe_baked))
+    box_5C0DE.enabled = (bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wireframe and (not bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wireframe_baked))
     box_5C0DE.active = True
     box_5C0DE.use_property_split = False
     box_5C0DE.use_property_decorate = False
@@ -2959,7 +3012,6 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     box_02E3E.label(text='Single / Multiple', icon_value=0)
     attr_35556 = '["' + str('Socket_15' + '"]') 
     box_02E3E.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_35556, text='', icon_value=0, emboss=True, slider=False, toggle=True)
-    box_5C0DE.separator(factor=1.0)
     box_705F8 = box_5C0DE.box()
     box_705F8.alert = False
     box_705F8.enabled = True
@@ -2974,7 +3026,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     attr_0331E = '["' + str('Socket_39' + '"]') 
     box_705F8.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_0331E, text='', icon_value=0, emboss=True, slider=False, toggle=True)
     if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_39'] == 5):
-        col_9E062 = box_705F8.column(heading='', align=False)
+        col_9E062 = box_705F8.column(heading='', align=True)
         col_9E062.alert = False
         col_9E062.enabled = True
         col_9E062.active = True
@@ -2987,7 +3039,6 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
         col_9E062.label(text='Custom Object', icon_value=0)
         attr_D33BD = '["' + str('Socket_40' + '"]') 
         col_9E062.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_D33BD, text='', icon_value=0, emboss=True, slider=False, toggle=True)
-    box_5C0DE.separator(factor=1.0)
     box_D2AB5 = box_5C0DE.box()
     box_D2AB5.alert = False
     box_D2AB5.enabled = True
@@ -3000,7 +3051,6 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     if not True: box_D2AB5.operator_context = "EXEC_DEFAULT"
     attr_706F4 = '["' + str('Socket_18' + '"]') 
     box_D2AB5.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_706F4, text='Selection', icon_value=0, emboss=True, slider=True, toggle=False)
-    box_5C0DE.separator(factor=1.0)
     box_6F2D3 = box_5C0DE.box()
     box_6F2D3.alert = False
     box_6F2D3.enabled = True
@@ -3017,7 +3067,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_29'] == 0):
         pass
     else:
-        col_A262E = box_6F2D3.column(heading='', align=False)
+        col_A262E = box_6F2D3.column(heading='', align=True)
         col_A262E.alert = False
         col_A262E.enabled = True
         col_A262E.active = True
@@ -3034,7 +3084,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
             attr_3706E = '["' + str('Socket_26' + '"]') 
             col_A262E.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_3706E, text='', icon_value=0, emboss=True)
         else:
-            col_A262E.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], '["Socket_27"]', bpy.data, 'collections', text='', icon='NONE')
+            col_A262E.prop_search(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], '["Socket_27"]', bpy.data, 'collections', text='', icon='NONE', item_search_property="name")
         if ((bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_29'] == 3) or (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_29'] == 4)):
             attr_558A3 = '["' + str('Socket_28' + '"]') 
             col_A262E.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_558A3, text='Distance Threshold', icon_value=0, emboss=True)
@@ -3050,7 +3100,6 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     if not True: box_94A5B.operator_context = "EXEC_DEFAULT"
     attr_B542F = '["' + str('Socket_3' + '"]') 
     box_94A5B.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_B542F, text='Curve Resolution', icon_value=0, emboss=True, slider=False, toggle=True)
-    box_5C0DE.separator(factor=1.0)
     box_750F0 = box_5C0DE.box()
     box_750F0.alert = False
     box_750F0.enabled = True
@@ -3071,7 +3120,6 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     box_750F0.label(text='Radius Taper', icon_value=0)
     attr_87F4F = '["' + str('Socket_17' + '"]') 
     box_750F0.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_87F4F, text='', icon_value=0, emboss=True, slider=False, toggle=True)
-    box_5C0DE.separator(factor=1.0)
     box_FD97D = box_5C0DE.box()
     box_FD97D.alert = False
     box_FD97D.enabled = True
@@ -3088,7 +3136,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     attr_70313 = '["' + str('Socket_37' + '"]') 
     box_FD97D.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_70313, text='', icon_value=0, emboss=True, slider=False, toggle=True)
     if (bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN']['Socket_15'] == 0):
-        col_887B0 = box_5C0DE.column(heading='', align=False)
+        col_887B0 = box_5C0DE.column(heading='', align=True)
         col_887B0.alert = False
         col_887B0.enabled = True
         col_887B0.active = True
@@ -3156,7 +3204,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
             col_FAB4F.prop(bpy.context.view_layer.objects.active.modifiers['KIRI_Point_Animate_Wireframe_GN'], attr_0E53D, text='Fillet Radius', icon_value=0, emboss=True, slider=False, toggle=True)
     col_1E0D3.separator(factor=1.0)
     grid_3FCF0 = col_1E0D3.grid_flow(columns=6, row_major=False, even_columns=False, even_rows=False, align=False)
-    grid_3FCF0.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_enable_wireframe
+    grid_3FCF0.enabled = bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.enable_wireframe
     grid_3FCF0.active = True
     grid_3FCF0.use_property_split = False
     grid_3FCF0.use_property_decorate = False
@@ -3185,7 +3233,7 @@ def sna_wireframe_function_interface_67E1B(layout_function, ):
     box_91BCA.scale_x = 1.0
     box_91BCA.scale_y = 2.0
     if not True: box_91BCA.operator_context = "EXEC_DEFAULT"
-    op = box_91BCA.operator('sna.remove_bake_wireframe_settings_f1797', text='', icon_value=string_to_icon('TRASH'), emboss=True, depress=False)
+    op = box_91BCA.operator('sna.remove_bake_wireframe_settings_f1797', text='', icon_value=load_preview_icon(os.path.join(os.path.dirname(__file__), 'assets', 'trash.svg')), emboss=True, depress=False)
 
 
 class SNA_OT_Bake_Wireframe_Settings_3429E(bpy.types.Operator):
@@ -3202,7 +3250,7 @@ class SNA_OT_Bake_Wireframe_Settings_3429E(bpy.types.Operator):
 
     def execute(self, context):
         sna_run_bake_node_function_execute_00810('KIRI_Point_Animate_Wireframe_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_wireframe_baked = True
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wireframe_baked = True
         return {"FINISHED"}
 
     def invoke(self, context, event):
@@ -3223,46 +3271,57 @@ class SNA_OT_Remove_Bake_Wireframe_Settings_F1797(bpy.types.Operator):
 
     def execute(self, context):
         sna_remove_bake_node_function_execute_80F90('KIRI_Point_Animate_Wireframe_GN')
-        bpy.context.view_layer.objects.active.sna_kiri_pa_wireframe_baked = False
+        bpy.context.view_layer.objects.active.sna_kiri_pa_object_properties.wireframe_baked = False
         return {"FINISHED"}
 
     def invoke(self, context, event):
         return self.execute(context)
 
 
+class SNA_GROUP_sna_kiri_pa_scene_property_group(bpy.types.PropertyGroup):
+    active_settings: bpy.props.EnumProperty(name='Active_Settings', description='', items=[('Decimate', 'Decimate', '', 0, 0), ('Crop Box', 'Crop Box', '', 0, 1), ('Wind', 'Wind', '', 0, 2), ('Morph', 'Morph', '', 0, 3), ('Noise', 'Noise', '', 0, 4), ('Snap To Shape', 'Snap To Shape', '', 0, 5), ('Wireframe', 'Wireframe', '', 0, 6)])
+    show_full_controls: bpy.props.BoolProperty(name='Show_Full_Controls', description='', default=False)
+
+
+class SNA_GROUP_sna_kiri_pa_object_property_group(bpy.types.PropertyGroup):
+    start_frame: bpy.props.IntProperty(name='Start Frame', description='', default=1, subtype='NONE', update=sna_update_start_frame_325FE)
+    end_frame: bpy.props.IntProperty(name='End Frame', description='', default=250, subtype='NONE', update=sna_update_end_frame_22369)
+    point_scale_min: bpy.props.FloatProperty(name='Point_Scale_Min', description='', default=0.0020000000949949026, subtype='NONE', unit='NONE', min=0.0010000000474974513, max=100.0, step=3, precision=3, update=sna_update_point_scale_min_A5ACF)
+    point_scale_max: bpy.props.FloatProperty(name='Point_Scale_Max', description='', default=0.029999999329447746, subtype='NONE', unit='NONE', min=0.0010000000474974513, max=100.0, step=3, precision=3, update=sna_update_point_scale_max_0E8A0)
+    scale_random: bpy.props.FloatProperty(name='Scale_Random', description='', default=0.5, subtype='NONE', unit='NONE', min=0.0, max=1.0, step=3, precision=2, update=sna_update_scale_random_5C353)
+    point_scale_attribute: bpy.props.EnumProperty(name='Point_Scale_Attribute', description='', items=[('No Attribute Influence', 'No Attribute Influence', '', 0, 0), ('Timeline:1-0', 'Timeline:1-0', '', 0, 1), ('Timeline:0-1', 'Timeline:0-1', '', 0, 2), ('Timeline:20%-80%=1-0', 'Timeline:20%-80%=1-0', '', 0, 3), ('Timeline:20%-80%=0-1', 'Timeline:20%-80%=0-1', '', 0, 4), ('Timeline:0%-50%=1-0', 'Timeline:0%-50%=1-0', '', 0, 5), ('Timeline:0%-50%=0-1', 'Timeline:0%-50%=0-1', '', 0, 6), ('Timeline:1-0-1', 'Timeline:1-0-1', '', 0, 7), ('Timeline:0-1-0', 'Timeline:0-1-0', '', 0, 8), ('Timeline:20%-50%-80%=1-0-1', 'Timeline:20%-50%-80%=1-0-1', '', 0, 9), ('Timeline:20%-50%-80%=0-1-0', 'Timeline:20%-50%-80%=0-1-0', '', 0, 10), ('Isactive (if using Wind)', 'Isactive (if using Wind)', '', 0, 11), ('Age (if using Wind)', 'Age (if using Wind)', '', 0, 12)], update=sna_update_point_scale_attribute_2C65A)
+    enable_decimate: bpy.props.BoolProperty(name='Enable_Decimate', description='', default=False, update=sna_update_enable_decimate_897F9)
+    enable_crop_box: bpy.props.BoolProperty(name='Enable_Crop_Box', description='', default=False, update=sna_update_enable_crop_box_C5D8F)
+    enable_wind: bpy.props.BoolProperty(name='Enable_Wind', description='', default=False, update=sna_update_enable_wind_0B2A0)
+    enable_morph: bpy.props.BoolProperty(name='Enable_Morph', description='', default=False, update=sna_update_enable_morph_2583F)
+    enable_noise: bpy.props.BoolProperty(name='Enable_Noise', description='', default=False, update=sna_update_enable_noise_19878)
+    enable_snap: bpy.props.BoolProperty(name='Enable_Snap', description='', default=False, update=sna_update_enable_snap_141CD)
+    enable_wireframe: bpy.props.BoolProperty(name='Enable_Wireframe', description='', default=False, update=sna_update_enable_wireframe_CAA02)
+    wind_baked: bpy.props.BoolProperty(name='Wind_Baked', description='', default=False)
+    morph_baked: bpy.props.BoolProperty(name='Morph_Baked', description='', default=False)
+    noise_baked: bpy.props.BoolProperty(name='Noise_Baked', description='', default=False)
+    snap_baked: bpy.props.BoolProperty(name='Snap_Baked', description='', default=False)
+    wireframe_baked: bpy.props.BoolProperty(name='Wireframe_Baked', description='', default=False)
+
+
 def register():
     global _icons
     _icons = bpy.utils.previews.new()
-    bpy.types.Object.sna_kiri_pa_start_frame = bpy.props.IntProperty(name='KIRI_PA_Start Frame', description='', default=1, subtype='NONE', update=sna_update_sna_kiri_pa_start_frame_325FE)
-    bpy.types.Object.sna_kiri_pa_end_frame = bpy.props.IntProperty(name='KIRI_PA_End Frame', description='', default=100, subtype='NONE', update=sna_update_sna_kiri_pa_end_frame_22369)
-    bpy.types.Object.sna_kiri_pa_point_scale_min = bpy.props.FloatProperty(name='KIRI_PA_Point_Scale_Min', description='', default=0.0020000000949949026, subtype='NONE', unit='NONE', min=0.0, max=100.0, step=3, precision=3, update=sna_update_sna_kiri_pa_point_scale_min_A5ACF)
-    bpy.types.Object.sna_kiri_pa_point_scale_max = bpy.props.FloatProperty(name='KIRI_PA_Point_Scale_Max', description='', default=0.029999999329447746, subtype='NONE', unit='NONE', min=0.0, max=100.0, step=3, precision=3, update=sna_update_sna_kiri_pa_point_scale_max_0E8A0)
-    bpy.types.Object.sna_kiri_pa_point_scale_random = bpy.props.FloatProperty(name='KIRI_PA_Point_Scale_Random', description='', default=0.5, subtype='NONE', unit='NONE', min=0.0, max=1.0, step=3, precision=2, update=sna_update_sna_kiri_pa_point_scale_random_5C353)
-    bpy.types.Object.sna_kiri_pa_point_scale_attribute = bpy.props.EnumProperty(name='KIRI_PA_Point_Scale_Attribute', description='', items=[('No Attribute Influence', 'No Attribute Influence', '', 0, 0), ('Timeline:1-0', 'Timeline:1-0', '', 0, 1), ('Timeline:0-1', 'Timeline:0-1', '', 0, 2), ('Timeline:20%-80%=1-0', 'Timeline:20%-80%=1-0', '', 0, 3), ('Timeline:20%-80%=0-1', 'Timeline:20%-80%=0-1', '', 0, 4), ('Timeline:0%-50%=1-0', 'Timeline:0%-50%=1-0', '', 0, 5), ('Timeline:0%-50%=0-1', 'Timeline:0%-50%=0-1', '', 0, 6), ('Timeline:1-0-1', 'Timeline:1-0-1', '', 0, 7), ('Timeline:0-1-0', 'Timeline:0-1-0', '', 0, 8), ('Timeline:20%-50%-80%=1-0-1', 'Timeline:20%-50%-80%=1-0-1', '', 0, 9), ('Timeline:20%-50%-80%=0-1-0', 'Timeline:20%-50%-80%=0-1-0', '', 0, 10), ('Isactive (if using Wind)', 'Isactive (if using Wind)', '', 0, 11), ('Age (if using Wind)', 'Age (if using Wind)', '', 0, 12)], update=sna_update_sna_kiri_pa_point_scale_attribute_2C65A)
-    bpy.types.Object.sna_kiri_pa_enable_decimate = bpy.props.BoolProperty(name='KIRI_PA_Enable_Decimate', description='', default=False, update=sna_update_sna_kiri_pa_enable_decimate_897F9)
-    bpy.types.Object.sna_kiri_pa_enable_crop_box = bpy.props.BoolProperty(name='KIRI_PA_Enable_Crop_Box', description='', default=False, update=sna_update_sna_kiri_pa_enable_crop_box_C5D8F)
-    bpy.types.Object.sna_kiri_pa_enable_wind = bpy.props.BoolProperty(name='KIRI_PA_Enable_Wind', description='', default=False, update=sna_update_sna_kiri_pa_enable_wind_0B2A0)
-    bpy.types.Object.sna_kiri_pa_enable_morph = bpy.props.BoolProperty(name='KIRI_PA_Enable_Morph', description='', default=False, update=sna_update_sna_kiri_pa_enable_morph_2583F)
-    bpy.types.Object.sna_kiri_pa_enable_noise = bpy.props.BoolProperty(name='KIRI_PA_Enable_Noise', description='', default=False, update=sna_update_sna_kiri_pa_enable_noise_19878)
-    bpy.types.Object.sna_kiri_pa_enable_snap = bpy.props.BoolProperty(name='KIRI_PA_Enable_Snap', description='', default=False, update=sna_update_sna_kiri_pa_enable_snap_141CD)
-    bpy.types.Object.sna_kiri_pa_enable_wireframe = bpy.props.BoolProperty(name='KIRI_PA_Enable_Wireframe', description='', default=False, update=sna_update_sna_kiri_pa_enable_wireframe_CAA02)
-    bpy.types.Scene.sna_kiri_pa_active_settings = bpy.props.EnumProperty(name='KIRI_PA_Active_Settings', description='', items=[('Decimate', 'Decimate', '', 0, 0), ('Crop Box', 'Crop Box', '', 0, 1), ('Wind', 'Wind', '', 0, 2), ('Morph', 'Morph', '', 0, 3), ('Noise', 'Noise', '', 0, 4), ('Snap To Shape', 'Snap To Shape', '', 0, 5), ('Wireframe', 'Wireframe', '', 0, 6)])
-    bpy.types.Scene.sna_kiri_pa_show_full_controls = bpy.props.BoolProperty(name='KIRI_PA_Show_Full_Controls', description='', default=False)
-    bpy.types.Object.sna_kiri_pa_wind_baked = bpy.props.BoolProperty(name='KIRI_PA_Wind_Baked', description='', default=False)
-    bpy.types.Object.sna_kiri_pa_morph_baked = bpy.props.BoolProperty(name='KIRI_PA_Morph_Baked', description='', default=False)
-    bpy.types.Object.sna_kiri_pa_noise_baked = bpy.props.BoolProperty(name='KIRI_PA_Noise_Baked', description='', default=False)
-    bpy.types.Object.sna_kiri_pa_snap_baked = bpy.props.BoolProperty(name='KIRI_PA_Snap_Baked', description='', default=False)
-    bpy.types.Object.sna_kiri_pa_wireframe_baked = bpy.props.BoolProperty(name='KIRI_PA_Wireframe_Baked', description='', default=False)
+    bpy.utils.register_class(SNA_GROUP_sna_kiri_pa_scene_property_group)
+    bpy.utils.register_class(SNA_GROUP_sna_kiri_pa_object_property_group)
+    bpy.types.Scene.sna_kiri_pa_scene_properties = bpy.props.PointerProperty(name='KIRI_PA_Scene_Properties', description='', type=SNA_GROUP_sna_kiri_pa_scene_property_group)
+    bpy.types.Object.sna_kiri_pa_object_properties = bpy.props.PointerProperty(name='KIRI_PA_Object_Properties', description='', type=SNA_GROUP_sna_kiri_pa_object_property_group)
     bpy.utils.register_class(SNA_OT_Add_Point_Edit_Modifiers_Aafc2)
     bpy.utils.register_class(SNA_OT_Append_Wire_Sphere_F21B7)
     bpy.utils.register_class(SNA_OT_Append_Wire_Cube_D69Fb)
     bpy.utils.register_class(SNA_OT_Append_Wind_Controller_14Ef6)
-    bpy.utils.register_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35)
-    bpy.utils.register_class(SNA_OT_Open_Point_Animate_Documentation_1Eac5)
-    bpy.utils.register_class(SNA_OT_Open_Point_Animate_Tutorial_Video_A4Fe6)
     bpy.utils.register_class(SNA_OT_Refresh_Changes_Ce548)
-    bpy.utils.register_class(SNA_OT_Launch_Kiri_Site_D26Bf)
-    bpy.utils.register_class(SNA_OT_Launch_Blender_Market_77F72)
+    bpy.utils.register_class(SNA_OT_Dgs_Render_Launch_Kiri_Site_84772)
+    bpy.utils.register_class(SNA_OT_Pa_Launch_Superhive_Store_0Bcb5)
+    bpy.utils.register_class(SNA_OT_Pa_Launch_Kiri_Blender_Addons_Page_9427F)
+    bpy.utils.register_class(SNA_OT_Pa_Open_Documentation_3B870)
+    bpy.utils.register_class(SNA_OT_Pa_Open_Tutorial_Video_D0Cd5)
+    bpy.utils.register_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_B94F8)
     bpy.utils.register_class(SNA_OT_Setup_Quick_Dissolve_94289)
     bpy.utils.register_class(SNA_OT_Setup_Quick_Morph_Dc267)
     bpy.utils.register_class(SNA_OT_Setup_Quick_Magic_Ce2Cf)
@@ -3287,36 +3346,21 @@ def unregister():
     for km, kmi in addon_keymaps.values():
         km.keymap_items.remove(kmi)
     addon_keymaps.clear()
-    del bpy.types.Object.sna_kiri_pa_wireframe_baked
-    del bpy.types.Object.sna_kiri_pa_snap_baked
-    del bpy.types.Object.sna_kiri_pa_noise_baked
-    del bpy.types.Object.sna_kiri_pa_morph_baked
-    del bpy.types.Object.sna_kiri_pa_wind_baked
-    del bpy.types.Scene.sna_kiri_pa_show_full_controls
-    del bpy.types.Scene.sna_kiri_pa_active_settings
-    del bpy.types.Object.sna_kiri_pa_enable_wireframe
-    del bpy.types.Object.sna_kiri_pa_enable_snap
-    del bpy.types.Object.sna_kiri_pa_enable_noise
-    del bpy.types.Object.sna_kiri_pa_enable_morph
-    del bpy.types.Object.sna_kiri_pa_enable_wind
-    del bpy.types.Object.sna_kiri_pa_enable_crop_box
-    del bpy.types.Object.sna_kiri_pa_enable_decimate
-    del bpy.types.Object.sna_kiri_pa_point_scale_attribute
-    del bpy.types.Object.sna_kiri_pa_point_scale_random
-    del bpy.types.Object.sna_kiri_pa_point_scale_max
-    del bpy.types.Object.sna_kiri_pa_point_scale_min
-    del bpy.types.Object.sna_kiri_pa_end_frame
-    del bpy.types.Object.sna_kiri_pa_start_frame
+    del bpy.types.Object.sna_kiri_pa_object_properties
+    del bpy.types.Scene.sna_kiri_pa_scene_properties
+    bpy.utils.unregister_class(SNA_GROUP_sna_kiri_pa_object_property_group)
+    bpy.utils.unregister_class(SNA_GROUP_sna_kiri_pa_scene_property_group)
     bpy.utils.unregister_class(SNA_OT_Add_Point_Edit_Modifiers_Aafc2)
     bpy.utils.unregister_class(SNA_OT_Append_Wire_Sphere_F21B7)
     bpy.utils.unregister_class(SNA_OT_Append_Wire_Cube_D69Fb)
     bpy.utils.unregister_class(SNA_OT_Append_Wind_Controller_14Ef6)
-    bpy.utils.unregister_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_E1C35)
-    bpy.utils.unregister_class(SNA_OT_Open_Point_Animate_Documentation_1Eac5)
-    bpy.utils.unregister_class(SNA_OT_Open_Point_Animate_Tutorial_Video_A4Fe6)
     bpy.utils.unregister_class(SNA_OT_Refresh_Changes_Ce548)
-    bpy.utils.unregister_class(SNA_OT_Launch_Kiri_Site_D26Bf)
-    bpy.utils.unregister_class(SNA_OT_Launch_Blender_Market_77F72)
+    bpy.utils.unregister_class(SNA_OT_Dgs_Render_Launch_Kiri_Site_84772)
+    bpy.utils.unregister_class(SNA_OT_Pa_Launch_Superhive_Store_0Bcb5)
+    bpy.utils.unregister_class(SNA_OT_Pa_Launch_Kiri_Blender_Addons_Page_9427F)
+    bpy.utils.unregister_class(SNA_OT_Pa_Open_Documentation_3B870)
+    bpy.utils.unregister_class(SNA_OT_Pa_Open_Tutorial_Video_D0Cd5)
+    bpy.utils.unregister_class(SNA_PT_POINT_ANIMATE_BY_KIRI_ENGINE_B94F8)
     bpy.utils.unregister_class(SNA_OT_Setup_Quick_Dissolve_94289)
     bpy.utils.unregister_class(SNA_OT_Setup_Quick_Morph_Dc267)
     bpy.utils.unregister_class(SNA_OT_Setup_Quick_Magic_Ce2Cf)
